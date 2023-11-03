@@ -4,7 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4068e77-967b-4fcd-9a6f-64d47540ed79" name="Changes" comment="sql schema added" />
+    <list default="true" id="019c0d44-dcce-45c8-9504-1f5c76d11afa" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/controller/CustomerFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/controller/DashboardFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/controller/PopUpAddCustomerFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/controller/PopUpUpdateCustomerFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/db/DbConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/dto/CustomerDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/dto/tm/CustomerTm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/model/CustomerModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/navigation/Navigation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/navigation/Routes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/customerForm.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/dashboardForm.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/popUpAddCustomerForm.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/popUpUpdateCustomerForm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/Launcher.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +31,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -20,14 +40,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="workspaceImportEnabled" value="true" />
-      </MavenImportingSettings>
-    </option>
-  </component>
-  <component name="ProjectId" id="2XfQmcXpHxy4vglJHeTFPaVAdrf" />
+  <component name="ProjectId" id="2XfqBhe9k5d1Ble9HFa7sxWpqkI" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -39,43 +52,47 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/IJSE/First Semester/OOP-[Object-Oriented Programming]/MY PROJECTS/template",
     "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="LauncherWrapper" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="lk.ijse.computerShop.LauncherWrapper" />
+      <module name="COMPUTER-SHOP" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="lk.ijse.computerShop.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.LauncherWrapper" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a4068e77-967b-4fcd-9a6f-64d47540ed79" name="Changes" comment="" />
-      <created>1699017817158</created>
+      <changelist id="019c0d44-dcce-45c8-9504-1f5c76d11afa" name="Changes" comment="" />
+      <created>1699030349762</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1699017817158</updated>
-      <workItem from="1699017818232" duration="1680000" />
+      <updated>1699030349762</updated>
+      <workItem from="1699030350910" duration="1883000" />
     </task>
-    <task id="LOCAL-00001" summary="sql schema added">
-      <created>1699019576189</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1699019576189</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="sql schema added" />
-    <option name="LAST_COMMIT_MESSAGE" value="sql schema added" />
   </component>
 </project>
