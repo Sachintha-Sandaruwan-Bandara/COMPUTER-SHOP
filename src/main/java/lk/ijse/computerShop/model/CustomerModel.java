@@ -75,4 +75,51 @@ public class CustomerModel {
         }
 
     }
+
+    public CustomerDto getCustomer(String updateCustomerId) {
+        try {
+            Connection connection = DbConnection.getInstance().getConnection();
+            String sql="select * from customer where cusID=?";
+            PreparedStatement pstm = connection.prepareStatement(sql);
+            pstm.setObject(1,updateCustomerId);
+
+            ResultSet resultSet = pstm.executeQuery();
+            CustomerDto customerDto = null;
+            if (resultSet.next()){
+                 customerDto = new CustomerDto(
+                        resultSet.getString(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getString(4),
+                        resultSet.getInt(5)
+
+
+                );
+            }
+            return customerDto;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public boolean updateCustomer(CustomerDto dto) {
+        try {
+            Connection connection = DbConnection.getInstance().getConnection();
+           String sql="UPDATE customer SET cusID=?,name=?,address=?,email=?,mobile=? WHERE cusID=?;";
+            PreparedStatement pstm = connection.prepareStatement(sql);
+            pstm.setObject(1,dto.getId());
+            pstm.setObject(2,dto.getName());
+            pstm.setObject(3,dto.getAddress());
+            pstm.setObject(4,dto.getEmail());
+            pstm.setObject(5,dto.getMobile());
+            pstm.setObject(6,dto.getId());
+
+            boolean b = pstm.executeUpdate() > 0;
+            return b;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

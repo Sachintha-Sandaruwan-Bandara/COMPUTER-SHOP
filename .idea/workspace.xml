@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="019c0d44-dcce-45c8-9504-1f5c76d11afa" name="Changes" comment="add customer complete">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/css/Style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/edit.png" afterDir="false" />
+    <list default="true" id="019c0d44-dcce-45c8-9504-1f5c76d11afa" name="Changes" comment="customer delete done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/controller/CustomerFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/controller/CustomerFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/controller/PopUpAddCustomerFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/controller/PopUpAddCustomerFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/dto/tm/CustomerTm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/dto/tm/CustomerTm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/controller/PopUpUpdateCustomerFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/controller/PopUpUpdateCustomerFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/model/CustomerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/model/CustomerModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/customerForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/customerForm.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +80,7 @@
       <option name="presentableId" value="Default" />
       <updated>1699030349762</updated>
       <workItem from="1699030350910" duration="10448000" />
-      <workItem from="1699040954031" duration="4075000" />
+      <workItem from="1699040954031" duration="9281000" />
     </task>
     <task id="LOCAL-00001" summary="add customer complete">
       <created>1699032365326</created>
@@ -93,7 +89,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699032365326</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="customer delete done">
+      <created>1699045561352</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1699045561352</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -102,6 +105,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="add customer complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="add customer complete" />
+    <MESSAGE value="customer delete done" />
+    <option name="LAST_COMMIT_MESSAGE" value="customer delete done" />
   </component>
 </project>

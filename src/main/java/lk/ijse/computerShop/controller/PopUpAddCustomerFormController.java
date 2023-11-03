@@ -6,6 +6,7 @@ package lk.ijse.computerShop.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import lk.ijse.computerShop.dto.CustomerDto;
 import lk.ijse.computerShop.model.CustomerModel;
 
@@ -46,6 +47,9 @@ public class PopUpAddCustomerFormController {
                 if (isSaved){
                         System.out.println("customer saved!!");
                         CustomerFormController.customerFormController.loadAllCustomers();
+
+                        Stage stage = (Stage) txtName.getScene().getWindow();
+                        stage.close();
                 }else {
                         System.out.println("not saved!!");
                 }

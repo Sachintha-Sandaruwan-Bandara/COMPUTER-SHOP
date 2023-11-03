@@ -47,9 +47,12 @@ public class CustomerFormController {
         private TableColumn<?, ?> colName;
 
         @FXML
-        private TableView<CustomerTm> tblCustomer;
+        public TableView<CustomerTm> tblCustomer;
 
         public static CustomerFormController customerFormController;
+        public static CustomerDto dto;
+
+        public String updateCustomerId;
 
        public void initialize(){
            customerFormController=this;
@@ -72,9 +75,13 @@ public class CustomerFormController {
 
 
             btnEdit.setOnAction(event -> {
-                String id = param.getValue().getId();
+                updateCustomerId = param.getValue().getId();
+                try {
 
-                System.out.println(id);
+                    Navigation.navigatePopUpWindow(Routes.UPDATECUSTOMER);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
 
 
             });
@@ -149,6 +156,7 @@ public class CustomerFormController {
         void btnAddCustomerOnAction(ActionEvent event) throws IOException {
                 Navigation.navigatePopUpWindow(Routes.ADDCUSTOMER);
         }
+
 
 
 
