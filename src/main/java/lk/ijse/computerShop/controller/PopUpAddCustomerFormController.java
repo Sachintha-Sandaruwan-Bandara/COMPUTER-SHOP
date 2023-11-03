@@ -45,6 +45,7 @@ public class PopUpAddCustomerFormController {
 
                 if (isSaved){
                         System.out.println("customer saved!!");
+                        CustomerFormController.customerFormController.loadAllCustomers();
                 }else {
                         System.out.println("not saved!!");
                 }

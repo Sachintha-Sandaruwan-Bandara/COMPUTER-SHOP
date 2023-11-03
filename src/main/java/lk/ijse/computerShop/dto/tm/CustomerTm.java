@@ -4,6 +4,8 @@ package lk.ijse.computerShop.dto.tm;
     @created 11/3/2023 - 10:23 PM 
 */
 
+import com.jfoenix.controls.JFXButton;
+import javafx.scene.control.Button;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,6 +19,7 @@ public class CustomerTm {
 
         private String email;
         private int mobile;
+
 
 
 }

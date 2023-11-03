@@ -4,24 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="019c0d44-dcce-45c8-9504-1f5c76d11afa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/controller/CustomerFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/controller/DashboardFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/controller/PopUpAddCustomerFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/controller/PopUpUpdateCustomerFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/db/DbConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/dto/CustomerDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/dto/tm/CustomerTm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/model/CustomerModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/navigation/Navigation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/navigation/Routes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/customerForm.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/dashboardForm.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/popUpAddCustomerForm.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/popUpUpdateCustomerForm.fxml" afterDir="false" />
+    <list default="true" id="019c0d44-dcce-45c8-9504-1f5c76d11afa" name="Changes" comment="add customer complete">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/css/Style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/edit.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/Launcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/controller/CustomerFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/controller/CustomerFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/controller/PopUpAddCustomerFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/controller/PopUpAddCustomerFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/dto/tm/CustomerTm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/dto/tm/CustomerTm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/model/CustomerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/computerShop/model/CustomerModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/customerForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/customerForm.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +26,7 @@
         <option value="FxmlFile" />
         <option value="Enum" />
         <option value="Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -48,18 +41,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/IJSE/First Semester/OOP-[Object-Oriented Programming]/MY PROJECTS/template",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/IJSE/First Semester/OOP-[Object-Oriented Programming]/MY PROJECTS/template&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="LauncherWrapper" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="lk.ijse.computerShop.LauncherWrapper" />
@@ -88,11 +83,25 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699030349762</updated>
-      <workItem from="1699030350910" duration="1883000" />
+      <workItem from="1699030350910" duration="10448000" />
+      <workItem from="1699040954031" duration="4075000" />
     </task>
+    <task id="LOCAL-00001" summary="add customer complete">
+      <created>1699032365326</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1699032365326</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="add customer complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="add customer complete" />
   </component>
 </project>

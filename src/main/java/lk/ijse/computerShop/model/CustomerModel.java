@@ -59,4 +59,20 @@ public class CustomerModel {
             throw new RuntimeException(e);
         }
     }
+
+    public boolean deleteCustomer(String id) {
+        try {
+            Connection connection = DbConnection.getInstance().getConnection();
+            String sql="delete from customer where cusID=?";
+            PreparedStatement pstm = connection.prepareStatement(sql);
+            pstm.setObject(1,id);
+
+            boolean b = pstm.executeUpdate() > 0;
+            return b;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 }

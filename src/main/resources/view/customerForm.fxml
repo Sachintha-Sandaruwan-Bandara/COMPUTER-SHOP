@@ -5,19 +5,19 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="677.0" prefWidth="1037.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computerShop.controller.CustomerFormController">
    <children>
-      <TableView fx:id="tblCustomer" layoutX="53.0" layoutY="329.0" prefHeight="325.0" prefWidth="915.0">
+      <TableView fx:id="tblCustomer" layoutX="28.0" layoutY="329.0" prefHeight="325.0" prefWidth="983.0">
         <columns>
           <TableColumn fx:id="colId" prefWidth="151.3333396911621" text="CUSTOMER ID" />
             <TableColumn fx:id="colName" prefWidth="151.3333396911621" text="NAME" />
             <TableColumn fx:id="colAddress" prefWidth="151.3333396911621" text="ADDRESS" />
             <TableColumn fx:id="colMobile" prefWidth="151.3333396911621" text="MOBILE" />
             <TableColumn fx:id="colEmail" prefWidth="151.3333396911621" text="E-MAIL" />
-            <TableColumn fx:id="colAction" prefWidth="151.3333396911621" text="ACTION" />
+            <TableColumn fx:id="colEdit" prefWidth="109.3333740234375" />
+            <TableColumn fx:id="colDelete" prefWidth="109.3333740234375" />
         </columns>
       </TableView>
-      <JFXButton layoutX="851.0" layoutY="258.0" onAction="#btnAddCustomerOnAction" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: BLACK;" text="ADD CUSTOMER" textFill="WHITE" />
+      <JFXButton layoutX="893.0" layoutY="258.0" onAction="#btnAddCustomerOnAction" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: BLACK;" text="ADD CUSTOMER" textFill="WHITE" />
    </children>
 </AnchorPane>
