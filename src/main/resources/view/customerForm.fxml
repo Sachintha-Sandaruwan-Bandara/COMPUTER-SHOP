@@ -18,6 +18,6 @@
             <TableColumn fx:id="colDelete" prefWidth="109.3333740234375" />
         </columns>
       </TableView>
-      <JFXButton layoutX="893.0" layoutY="258.0" onAction="#btnAddCustomerOnAction" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: BLACK;" text="ADD CUSTOMER" textFill="WHITE" />
+      <JFXButton fx:id="btnAddCustomer" layoutX="893.0" layoutY="258.0" onAction="#btnAddCustomerOnAction" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: BLACK;" text="ADD CUSTOMER" textFill="WHITE" />
    </children>
 </AnchorPane>

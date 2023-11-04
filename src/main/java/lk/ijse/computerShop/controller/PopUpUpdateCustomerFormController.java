@@ -26,11 +26,14 @@ public class PopUpUpdateCustomerFormController {
         @FXML
         private TextField txtName;
 
-        private String updateCustomerId;
+        private CustomerFormController customerFormController;
+
 
         public void initialize(){
-                updateCustomerId = CustomerFormController.customerFormController.updateCustomerId;
-                loadCustomerDetails( updateCustomerId);
+            this.customerFormController=CustomerFormController.customerFormController;
+            loadCustomerDetails(customerFormController.updateCustomerId);
+            customerFormController.btnAddCustomer.setDisable(true);
+            customerFormController.tblCustomer.setDisable(true);
         }
 
         private void loadCustomerDetails(String  updateCustomerId) {
@@ -62,7 +65,11 @@ public class PopUpUpdateCustomerFormController {
             boolean isUpdated = customerModel.updateCustomer(dto);
             if (isUpdated){
                 System.out.println("customer Updated Successfully!!!");
-                CustomerFormController.customerFormController.loadAllCustomers();
+
+                customerFormController.btnAddCustomer.setDisable(false);
+                customerFormController.tblCustomer.setDisable(false);
+
+                customerFormController.loadAllCustomers();
                 Stage stage = (Stage) txtName.getScene().getWindow();
                 stage.close();
             }else{

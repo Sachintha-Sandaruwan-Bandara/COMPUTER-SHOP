@@ -26,6 +26,13 @@ public class PopUpAddCustomerFormController {
         @FXML
         private TextField txtName;
 
+        private CustomerFormController customerFormController;
+        public void initialize(){
+                this.customerFormController=CustomerFormController.customerFormController;
+                customerFormController.btnAddCustomer.setDisable(true);
+                customerFormController.tblCustomer.setDisable(true);
+        }
+
         @FXML
         void btnCancelOnAction(ActionEvent event) {
 
@@ -46,7 +53,9 @@ public class PopUpAddCustomerFormController {
 
                 if (isSaved){
                         System.out.println("customer saved!!");
-                        CustomerFormController.customerFormController.loadAllCustomers();
+                       customerFormController.loadAllCustomers();
+                       customerFormController.btnAddCustomer.setDisable(false);
+                       customerFormController.tblCustomer.setDisable(false);
 
                         Stage stage = (Stage) txtName.getScene().getWindow();
                         stage.close();
