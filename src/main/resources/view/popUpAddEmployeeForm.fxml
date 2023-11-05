@@ -3,10 +3,11 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="466.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computerShop.controller.PopUpAddEmployeeFormController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="605.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computerShop.controller.PopUpAddEmployeeFormController">
    <children>
       <TextField fx:id="txtId" layoutX="88.0" layoutY="81.0" prefHeight="46.0" prefWidth="263.0" promptText="ID" />
       <TextField fx:id="txtName" layoutX="88.0" layoutY="145.0" prefHeight="46.0" prefWidth="263.0" promptText="NAME" />
@@ -21,5 +22,8 @@
       <TextField fx:id="txtPosition" layoutX="88.0" layoutY="409.0" prefHeight="46.0" prefWidth="263.0" promptText="POSITION" />
       <JFXButton fx:id="btnSave" layoutX="336.0" layoutY="482.0" onAction="#btnSaveOnAction" prefHeight="39.0" prefWidth="90.0" style="-fx-background-color: BLACK;" text="SAVE" textFill="WHITE" />
       <JFXButton layoutX="220.0" layoutY="482.0" onAction="#btnCancelOnAction" prefHeight="39.0" prefWidth="90.0" style="-fx-background-color: BLACK;" text="CANCEL" textFill="WHITE" />
+      <JFXButton fx:id="btnAddImage" layoutX="432.0" layoutY="234.0" onAction="#btnAddImageOnAction" prefHeight="39.0" prefWidth="90.0" style="-fx-background-color: black;" text="ADD IMAGE" textFill="WHITE" />
+      <ImageView fx:id="imgView" fitHeight="150.0" fitWidth="200.0" layoutX="377.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true" />
+      <JFXButton fx:id="btnLoadImage" layoutX="432.0" layoutY="306.0" onAction="#btnLoadImageOnAction" prefHeight="39.0" prefWidth="90.0" style="-fx-background-color: black;" text="load " textFill="WHITE" />
    </children>
 </AnchorPane>

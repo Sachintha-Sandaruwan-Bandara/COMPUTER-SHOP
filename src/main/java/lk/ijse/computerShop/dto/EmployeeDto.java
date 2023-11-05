@@ -20,4 +20,8 @@ public class EmployeeDto {
     private int mobile;
 
     private String position;
+
+    private byte [] imageBytes;
+
+
 }

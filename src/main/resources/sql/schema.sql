@@ -10,7 +10,8 @@ create table employee (
                           address varchar(30),
                           email varchar(30),
                           mobile Int(10),
-                          position varchar(30)
+                          position varchar(30),
+                          image LONGBLOB
 );
 
 create table attendence(

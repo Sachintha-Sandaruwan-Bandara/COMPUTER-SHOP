@@ -50,7 +50,22 @@ public class EmployeeFormController {
 
     public void initialize(){
         employeeFormController=this;
+        loadAllEmployees();
+        setCellValueFactory();
+        addButtonsToTable();
     }
+
+    private void addButtonsToTable() {
+    }
+
+    private void setCellValueFactory() {
+        
+    }
+
+    private void loadAllEmployees() {
+        
+    }
+
     @FXML
     void btnAddEmployeeOnAction(ActionEvent event) throws IOException {
         Navigation.navigatePopUpWindow(Routes.ADDEMPLOYEE);

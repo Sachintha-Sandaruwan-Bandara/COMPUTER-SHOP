@@ -8,12 +8,25 @@ import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import lk.ijse.computerShop.dto.EmployeeDto;
 import lk.ijse.computerShop.model.EmployeeModel;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.*;
+
 public class PopUpAddEmployeeFormController {
 
+    @FXML
+    private JFXButton btnLoadImage;
+    @FXML
+    private JFXButton btnAddImage;
+    @FXML
+    private ImageView imgView;
     @FXML
     private JFXButton btnSave;
 
@@ -36,6 +49,8 @@ public class PopUpAddEmployeeFormController {
     private TextField txtPosition;
     private EmployeeFormController empCon;
 
+    private byte [] imageBytes;
+
     public void initialize(){
         empCon=EmployeeFormController.employeeFormController;
         empCon.btnAddEmployee.setDisable(true);
@@ -54,7 +69,8 @@ public class PopUpAddEmployeeFormController {
                 txtAddress.getText(),
                 txtEmail.getText(),
                 Integer.parseInt(txtMobile.getText()),
-                txtPosition.getText()
+                txtPosition.getText(),
+                imageBytes
         );
 
         EmployeeModel employeeModel = new EmployeeModel();
@@ -64,8 +80,8 @@ public class PopUpAddEmployeeFormController {
         if (isSaved){
             System.out.println("Employee saved!!");
             clear();
-            Stage stage = (Stage) txtName.getScene().getWindow();
-            stage.close();
+//            Stage stage = (Stage) txtName.getScene().getWindow();
+//            stage.close();
             empCon.btnAddEmployee.setDisable(false);
             empCon.tblEmployee.setDisable(false);
         }else {
@@ -82,4 +98,39 @@ public class PopUpAddEmployeeFormController {
         txtPosition.clear();
     }
 
+    @FXML
+    void btnAddImageOnAction(ActionEvent event) throws IOException {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open a file");
+        fileChooser.setInitialDirectory(new File("C:\\"));
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("JPEG Image","*.jpg"), new FileChooser.ExtensionFilter("PNG Image", "*.png"), new FileChooser.ExtensionFilter("All image files","*.jpg","*.png"));
+
+        Stage stage = (Stage) txtId.getScene().getWindow();
+        File file = fileChooser.showOpenDialog(stage);
+        System.out.println(file.getPath());
+
+// image convert to byte array
+         imageBytes = readImageToByteArray(file);
+
+    }
+    private byte[] readImageToByteArray(File file) throws IOException {
+        try (FileInputStream fis = new FileInputStream(file);
+             ByteArrayOutputStream bos = new ByteArrayOutputStream()) {
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            while ((bytesRead = fis.read(buffer)) != -1) {
+                bos.write(buffer, 0, bytesRead);
+            }
+            return bos.toByteArray();
+        }
+    }
+
+//byte array convert to image
+    @FXML
+    void btnLoadImageOnAction(ActionEvent event) {
+        EmployeeModel employeeModel = new EmployeeModel();
+        EmployeeDto e001 = employeeModel.getEmployee("e001");
+        Image image = new Image(new ByteArrayInputStream(e001.getImageBytes()));
+        imgView.setImage(image);
+    }
 }
