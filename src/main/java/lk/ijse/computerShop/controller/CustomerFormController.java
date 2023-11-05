@@ -61,6 +61,7 @@ public class CustomerFormController {
         setCellValueFactory();
         addButtonsToTable();
 
+
     }
 
     private void addButtonsToTable() {

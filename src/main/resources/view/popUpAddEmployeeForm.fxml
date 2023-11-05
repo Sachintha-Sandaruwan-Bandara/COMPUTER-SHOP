@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="466.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computerShop.controller.PopUpAddEmployeeFormController">
+   <children>
+      <TextField fx:id="txtId" layoutX="88.0" layoutY="81.0" prefHeight="46.0" prefWidth="263.0" promptText="ID" />
+      <TextField fx:id="txtName" layoutX="88.0" layoutY="145.0" prefHeight="46.0" prefWidth="263.0" promptText="NAME" />
+      <TextField fx:id="txtAddress" layoutX="88.0" layoutY="208.0" prefHeight="46.0" prefWidth="263.0" promptText="ADDRESS" />
+      <TextField fx:id="txtMobile" layoutX="88.0" layoutY="272.0" prefHeight="46.0" prefWidth="263.0" promptText="MOBILE" />
+      <TextField fx:id="txtEmail" layoutX="88.0" layoutY="346.0" prefHeight="46.0" prefWidth="263.0" promptText="E-MAIL" />
+      <Label layoutX="61.0" layoutY="27.0" text="ADD EMPLOYEE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtPosition" layoutX="88.0" layoutY="409.0" prefHeight="46.0" prefWidth="263.0" promptText="POSITION" />
+      <JFXButton fx:id="btnSave" layoutX="336.0" layoutY="482.0" onAction="#btnSaveOnAction" prefHeight="39.0" prefWidth="90.0" style="-fx-background-color: BLACK;" text="SAVE" textFill="WHITE" />
+      <JFXButton layoutX="220.0" layoutY="482.0" onAction="#btnCancelOnAction" prefHeight="39.0" prefWidth="90.0" style="-fx-background-color: BLACK;" text="CANCEL" textFill="WHITE" />
+   </children>
+</AnchorPane>

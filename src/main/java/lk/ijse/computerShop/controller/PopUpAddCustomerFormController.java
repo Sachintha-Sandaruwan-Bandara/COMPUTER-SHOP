@@ -3,12 +3,15 @@ package lk.ijse.computerShop.controller;
     @author Sachi_S_Bandara
     @created 11/3/2023 - 7:49 PM 
 */
+import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import lk.ijse.computerShop.dto.CustomerDto;
 import lk.ijse.computerShop.model.CustomerModel;
+
+import java.io.IOException;
 
 public class PopUpAddCustomerFormController {
         @FXML
@@ -59,6 +62,7 @@ public class PopUpAddCustomerFormController {
 
                         Stage stage = (Stage) txtName.getScene().getWindow();
                         stage.close();
+
                 }else {
                         System.out.println("not saved!!");
                 }

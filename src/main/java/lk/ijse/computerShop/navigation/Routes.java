@@ -5,5 +5,5 @@ package lk.ijse.computerShop.navigation;
 */
 
 public enum Routes {
-    ADDCUSTOMER,UPDATECUSTOMER
+    ADDCUSTOMER, ADDEMPLOYEE, UPDATEEMPLOYEE, UPDATECUSTOMER
 }

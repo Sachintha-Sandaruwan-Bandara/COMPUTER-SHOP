@@ -21,7 +21,12 @@ public class Navigation {
             case UPDATECUSTOMER:
                 initPopUp("popUpUpdateCustomerForm");
                 break;
-
+            case ADDEMPLOYEE:
+                initPopUp("popUpAddEmployeeForm");
+                break;
+            case UPDATEEMPLOYEE:
+                initPopUp("popUpUpdateEmployeeForm");
+                break;
 
         }
 
