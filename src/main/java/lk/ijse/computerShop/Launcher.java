@@ -17,7 +17,7 @@ public class Launcher extends Application {
     }
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(Launcher.class.getResource("/view/dashboardForm.fxml"));
+        Parent root = FXMLLoader.load(Launcher.class.getResource("/view/loginPageForm.fxml"));
         Scene scene = new Scene(root);
        // stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
