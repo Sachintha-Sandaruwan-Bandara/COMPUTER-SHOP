@@ -1,2 +1,14 @@
 /* delete */
 
+.animated-button1 {
+    -fx-background-color:  #212121;
+    -fx-pref-width: 220px;
+    -fx-pref-height: 40px;
+    -fx-cursor: hand;
+}
+
+.animated-button1:hover {
+    -fx-scale-x: 1.2;
+    -fx-scale-y: 1.2;
+    -fx-animation: scale 0.5s linear infinite;
+}
