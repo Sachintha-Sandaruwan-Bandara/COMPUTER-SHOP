@@ -52,7 +52,7 @@ public class EmployeeModel {
                         resultSet.getString(2),
                         resultSet.getString(3),
                         resultSet.getString(4),
-                        resultSet.getInt(5),
+                        resultSet.getString(5),
                         resultSet.getString(6),
                         resultSet.getBytes(7)
 

@@ -10,6 +10,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import lk.ijse.computerShop.dto.EmployeeDto;
@@ -55,6 +57,7 @@ public class PopUpAddEmployeeFormController {
         empCon=EmployeeFormController.employeeFormController;
         empCon.btnAddEmployee.setDisable(true);
         empCon.tblEmployee.setDisable(true);
+
     }
     @FXML
     void btnCancelOnAction(ActionEvent event) {
@@ -68,7 +71,7 @@ public class PopUpAddEmployeeFormController {
                 txtName.getText(),
                 txtAddress.getText(),
                 txtEmail.getText(),
-                Integer.parseInt(txtMobile.getText()),
+                txtMobile.getText(),
                 txtPosition.getText(),
                 imageBytes
         );
@@ -96,10 +99,14 @@ public class PopUpAddEmployeeFormController {
         txtEmail.clear();
         txtMobile.clear();
         txtPosition.clear();
+        imgView.setImage(null);
+        imgView.setVisible(false);
+
+
     }
 
     @FXML
-    void btnAddImageOnAction(ActionEvent event) throws IOException {
+    void btnAddImageOnAction() throws IOException {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open a file");
         fileChooser.setInitialDirectory(new File("C:\\"));
@@ -111,6 +118,14 @@ public class PopUpAddEmployeeFormController {
 
 // image convert to byte array
          imageBytes = readImageToByteArray(file);
+        Image image = new Image(new ByteArrayInputStream(imageBytes));
+        imgView.setImage(image);
+        Circle clip = new Circle(100,100,100);
+        imgView.setClip(clip);
+       // imgView.setPreserveRatio(true);
+        imgView.setFitWidth(200); // Set the desired width of the circular image
+        imgView.setFitHeight(200);
+
 
     }
     private byte[] readImageToByteArray(File file) throws IOException {
@@ -132,5 +147,10 @@ public class PopUpAddEmployeeFormController {
         EmployeeDto e001 = employeeModel.getEmployee("e001");
         Image image = new Image(new ByteArrayInputStream(e001.getImageBytes()));
         imgView.setImage(image);
+    }
+    @FXML
+    void imgAddOnMouseClicked(MouseEvent event) throws IOException {
+        btnAddImageOnAction();
+
     }
 }

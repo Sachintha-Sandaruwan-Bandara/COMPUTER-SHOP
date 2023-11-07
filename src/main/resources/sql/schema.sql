@@ -9,7 +9,7 @@ create table employee (
                           name varchar(30),
                           address varchar(30),
                           email varchar(30),
-                          mobile Int(10),
+                          mobile varchar(10),
                           position varchar(30),
                           image LONGBLOB
 );
@@ -91,7 +91,7 @@ create table customer(
                          name varchar(30),
                          address varchar(30),
                          email varchar(30),
-                         mobile Int(10)
+                         mobile varchar(10)
 );
 
 create table service(

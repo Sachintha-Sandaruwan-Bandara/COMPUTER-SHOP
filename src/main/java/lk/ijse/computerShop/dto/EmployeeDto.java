@@ -17,7 +17,7 @@ public class EmployeeDto {
     private String address;
 
     private String email;
-    private int mobile;
+    private String mobile;
 
     private String position;
 

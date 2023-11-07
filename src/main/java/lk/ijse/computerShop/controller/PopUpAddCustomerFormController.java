@@ -49,7 +49,7 @@ public class PopUpAddCustomerFormController {
                 String mobile = txtMobile.getText();
                 String email = txtEmail.getText();
 
-                CustomerDto customerDto = new CustomerDto(id, name, address,email, Integer.valueOf(mobile));
+                CustomerDto customerDto = new CustomerDto(id, name, address,email, mobile);
 
                 CustomerModel customerModel = new CustomerModel();
                 boolean isSaved = customerModel.saveCustomer(customerDto);

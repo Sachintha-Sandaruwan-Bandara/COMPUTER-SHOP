@@ -18,7 +18,7 @@ public class CustomerTm {
         private String address;
 
         private String email;
-        private int mobile;
+        private String mobile;
 
 
 

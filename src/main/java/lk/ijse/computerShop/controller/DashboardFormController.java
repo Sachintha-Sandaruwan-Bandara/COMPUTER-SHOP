@@ -41,8 +41,8 @@ public class DashboardFormController {
     }
 
     @FXML
-    void btnDashboardOnAction(ActionEvent event) {
-
+    void btnDashboardOnAction(ActionEvent event) throws IOException {
+        Navigation.navigate(Routes.DASHBOARD,mainAnchorPane);
     }
 
     @FXML

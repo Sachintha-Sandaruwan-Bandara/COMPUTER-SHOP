@@ -59,7 +59,7 @@ public class PopUpUpdateCustomerFormController {
                     txtName.getText(),
                     txtAddress.getText(),
                     txtEmail.getText(),
-                    Integer.parseInt(txtMobile.getText())
+                   txtMobile.getText()
             );
             CustomerModel customerModel = new CustomerModel();
             boolean isUpdated = customerModel.updateCustomer(dto);

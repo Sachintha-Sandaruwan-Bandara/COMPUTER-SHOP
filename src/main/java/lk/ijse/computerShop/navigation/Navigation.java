@@ -28,6 +28,10 @@ public class Navigation {
 
         switch (route) {
             case LOGIN:
+                initUI("loginPageForm.fxml");
+                window.setTitle("customer");
+                break;
+            case DASHBOARD:
                 initUI("dashboardForm.fxml");
                 window.setTitle("customer");
                 break;

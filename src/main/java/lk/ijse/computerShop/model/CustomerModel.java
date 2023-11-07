@@ -48,7 +48,7 @@ public class CustomerModel {
                 String name = resultSet.getString(2);
                 String address = resultSet.getString(3);
                 String email = resultSet.getString(4);
-                int mobile = resultSet.getInt(5);
+                String mobile = resultSet.getString(5);
 
                 CustomerDto customerDto = new CustomerDto(id, name, address, email, mobile);
                 dtoList.add(customerDto);
@@ -91,7 +91,7 @@ public class CustomerModel {
                         resultSet.getString(2),
                         resultSet.getString(3),
                         resultSet.getString(4),
-                        resultSet.getInt(5)
+                        resultSet.getString(5)
 
 
                 );
