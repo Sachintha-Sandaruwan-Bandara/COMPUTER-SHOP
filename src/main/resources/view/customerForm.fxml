@@ -2,9 +2,13 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import java.lang.String?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="677.0" prefWidth="1037.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computerShop.controller.CustomerFormController">
    <children>
@@ -25,5 +29,62 @@
          </styleClass>
       </TableView>
       <JFXButton fx:id="btnAddCustomer" layoutX="893.0" layoutY="258.0" onAction="#btnAddCustomerOnAction" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: BLACK;" text="ADD CUSTOMER" textFill="WHITE" />
+      <Pane layoutX="40.0" layoutY="61.0" prefHeight="243.0" prefWidth="591.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-radius: 10;">
+         <children>
+            <Label layoutX="32.0" layoutY="43.0" text="ID               :">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="70.0" text="NAME        :">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="97.0" text="ADDRESS  :">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="124.0" text="MOBILE     :">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="155.0" text="E-MAIL      :">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="32.0" layoutY="193.0" onAction="#btnVIewIdImageOnAction" prefHeight="36.0" prefWidth="117.0" style="-fx-border-color: GRAY;" text="VIEW ID IMAGE" />
+            <Label fx:id="lblId" layoutX="111.0" layoutY="43.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblName" layoutX="111.0" layoutY="70.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblAddress" layoutX="111.0" layoutY="97.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblMobile" layoutX="111.0" layoutY="124.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblEmail" layoutX="111.0" layoutY="155.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <TextField fx:id="txtSearchBar" layoutX="785.0" layoutY="36.0" onAction="#txtSearchBarOnAction" style="-fx-background-color: white; -fx-border-color: gray;" />
+      <JFXButton layoutX="936.0" layoutY="36.0" onAction="#btnSearchOnAction" style="-fx-border-color: gray;" text="search" />
    </children>
 </AnchorPane>

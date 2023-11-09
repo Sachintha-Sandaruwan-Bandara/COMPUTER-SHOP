@@ -11,17 +11,25 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
 import lk.ijse.computerShop.dto.CustomerDto;
 import lk.ijse.computerShop.dto.tm.CustomerTm;
 import lk.ijse.computerShop.model.CustomerModel;
 import lk.ijse.computerShop.navigation.Navigation;
 import lk.ijse.computerShop.navigation.Routes;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -49,6 +57,23 @@ public class CustomerFormController {
 
     @FXML
     public TableView<CustomerTm> tblCustomer;
+    @FXML
+    private Label lblAddress;
+
+    @FXML
+    private Label lblEmail;
+
+    @FXML
+    private Label lblId;
+
+    @FXML
+    private Label lblMobile;
+
+    @FXML
+    private Label lblName;
+
+    @FXML
+    private TextField txtSearchBar;
 
     public static CustomerFormController customerFormController;
     public static CustomerDto dto;
@@ -157,6 +182,50 @@ public class CustomerFormController {
     @FXML
     void btnAddCustomerOnAction(ActionEvent event) throws IOException {
         Navigation.navigatePopUpWindow(Routes.ADDCUSTOMER);
+    }
+
+    @FXML
+    void btnSearchOnAction(ActionEvent event) {
+        CustomerDto customer = new CustomerModel().getCustomer(txtSearchBar.getText());
+        lblId.setText(customer.getId());
+        lblName.setText(customer.getName());
+        lblAddress.setText(customer.getAddress());
+        lblMobile.setText(customer.getMobile());
+        lblEmail.setText(customer.getEmail());
+
+    }
+
+    @FXML
+    void btnVIewIdImageOnAction(ActionEvent event) {
+        CustomerDto customer = new CustomerModel().getCustomer(txtSearchBar.getText());
+
+        Image image = new Image(new ByteArrayInputStream(customer.getImageBytes()));
+        Stage primaryStage = new Stage();
+        primaryStage.setTitle("ID IMAGE");
+
+        StackPane root = new StackPane();
+        Scene scene = new Scene(root, 600, 400);
+        primaryStage.setScene(scene);
+        ImageView imageView = new ImageView();
+        imageView.setFitWidth(600);
+        imageView.setFitHeight(400);
+        imageView.setImage(image);
+        root.getChildren().add(imageView);
+
+        primaryStage.show();
+
+
+
+
+
+
+
+        }
+
+    @FXML
+    void txtSearchBarOnAction(ActionEvent event) {
+        btnSearchOnAction(event);
+
     }
 
 
