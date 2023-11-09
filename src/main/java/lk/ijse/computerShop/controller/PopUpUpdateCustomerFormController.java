@@ -6,9 +6,15 @@ package lk.ijse.computerShop.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import lk.ijse.computerShop.dto.CustomerDto;
 import lk.ijse.computerShop.model.CustomerModel;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 
 public class PopUpUpdateCustomerFormController {
         @FXML
@@ -25,6 +31,7 @@ public class PopUpUpdateCustomerFormController {
 
         @FXML
         private TextField txtName;
+        private byte[]  imageBytes;
 
         private CustomerFormController customerFormController;
 
@@ -59,7 +66,9 @@ public class PopUpUpdateCustomerFormController {
                     txtName.getText(),
                     txtAddress.getText(),
                     txtEmail.getText(),
-                   txtMobile.getText()
+                   txtMobile.getText(),
+                   imageBytes
+
             );
             CustomerModel customerModel = new CustomerModel();
             boolean isUpdated = customerModel.updateCustomer(dto);
@@ -84,5 +93,35 @@ public class PopUpUpdateCustomerFormController {
             txtEmail.clear();
             txtMobile.clear();
         }
+    @FXML
+    void btnIdImageAddOnAction(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open a file");
+        fileChooser.setInitialDirectory(new File("C:\\"));
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("JPEG Image","*.jpg"), new FileChooser.ExtensionFilter("PNG Image", "*.png"), new FileChooser.ExtensionFilter("All image files","*.jpg","*.png"));
+
+        Stage stage = (Stage) txtId.getScene().getWindow();
+        File file = fileChooser.showOpenDialog(stage);
+        System.out.println(file.getPath());
+
+// image convert to byte array
+        imageBytes = readImageToByteArray(file);
+
+    }
+
+    private byte[] readImageToByteArray(File file) {
+        try (FileInputStream fis = new FileInputStream(file);
+             ByteArrayOutputStream bos = new ByteArrayOutputStream()) {
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            while ((bytesRead = fis.read(buffer)) != -1) {
+                bos.write(buffer, 0, bytesRead);
+            }
+            return bos.toByteArray();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 
 }

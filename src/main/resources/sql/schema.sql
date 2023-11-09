@@ -91,7 +91,8 @@ create table customer(
                          name varchar(30),
                          address varchar(30),
                          email varchar(30),
-                         mobile varchar(10)
+                         mobile varchar(10),
+                         image LONGBLOB
 );
 
 create table service(

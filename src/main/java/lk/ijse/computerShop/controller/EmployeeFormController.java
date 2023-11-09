@@ -24,6 +24,7 @@ import java.io.IOException;
 
 public class EmployeeFormController {
 
+
     @FXML
     private Text address;
     @FXML
@@ -125,5 +126,10 @@ public class EmployeeFormController {
         email.setText(null);
         mobile.setText(null);
         imgView.setImage(null);
+    }
+
+    @FXML
+    void searchIdOnAction(ActionEvent event) {
+        btnSearchOnAction(event);
     }
 }

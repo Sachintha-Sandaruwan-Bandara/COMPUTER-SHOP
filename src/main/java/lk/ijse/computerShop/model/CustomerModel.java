@@ -17,7 +17,7 @@ public class CustomerModel {
     public boolean saveCustomer(CustomerDto customerDto) {
         try {
             Connection connection = DbConnection.getInstance().getConnection();
-            String sql="insert into customer values (?,?,?,?,?)";
+            String sql="insert into customer values (?,?,?,?,?,?)";
             PreparedStatement pstm = connection.prepareStatement(sql);
 
             pstm.setObject(1,customerDto.getId());
@@ -25,6 +25,8 @@ public class CustomerModel {
             pstm.setObject(3,customerDto.getAddress());
             pstm.setObject(4,customerDto.getEmail());
             pstm.setObject(5,customerDto.getMobile());
+            pstm.setObject(6,customerDto.getImageBytes());
+
 
             boolean b = pstm.executeUpdate() > 0;
             return b;
@@ -49,8 +51,9 @@ public class CustomerModel {
                 String address = resultSet.getString(3);
                 String email = resultSet.getString(4);
                 String mobile = resultSet.getString(5);
+                byte[] bytes = resultSet.getBytes(6);
 
-                CustomerDto customerDto = new CustomerDto(id, name, address, email, mobile);
+                CustomerDto customerDto = new CustomerDto(id, name, address, email, mobile,bytes);
                 dtoList.add(customerDto);
             }
             return dtoList;
@@ -91,7 +94,8 @@ public class CustomerModel {
                         resultSet.getString(2),
                         resultSet.getString(3),
                         resultSet.getString(4),
-                        resultSet.getString(5)
+                        resultSet.getString(5),
+                         resultSet.getBytes(6)
 
 
                 );
@@ -107,14 +111,15 @@ public class CustomerModel {
     public boolean updateCustomer(CustomerDto dto) {
         try {
             Connection connection = DbConnection.getInstance().getConnection();
-           String sql="UPDATE customer SET cusID=?,name=?,address=?,email=?,mobile=? WHERE cusID=?;";
+           String sql="UPDATE customer SET cusID=?,name=?,address=?,email=?,mobile=?,image=? WHERE cusID=?;";
             PreparedStatement pstm = connection.prepareStatement(sql);
             pstm.setObject(1,dto.getId());
             pstm.setObject(2,dto.getName());
             pstm.setObject(3,dto.getAddress());
             pstm.setObject(4,dto.getEmail());
             pstm.setObject(5,dto.getMobile());
-            pstm.setObject(6,dto.getId());
+            pstm.setObject(6,dto.getImageBytes());
+            pstm.setObject(7,dto.getId());
 
             boolean b = pstm.executeUpdate() > 0;
             return b;

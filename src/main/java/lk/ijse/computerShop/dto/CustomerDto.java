@@ -18,5 +18,6 @@ public class CustomerDto {
 
     private String email;
     private String mobile;
+    private byte [] imageBytes;
 
 }
