@@ -48,3 +48,12 @@
 .table-row-cell:hover {
     -fx-background-color: #ADD8E6; /* Light blue background on hover */
 }
+.popup-button:hover {
+    -fx-background-color: #ff1600;
+}
+
+.popup-button {
+    -fx-background-color: rgba(147, 144, 144, 0.6);
+    
+
+}

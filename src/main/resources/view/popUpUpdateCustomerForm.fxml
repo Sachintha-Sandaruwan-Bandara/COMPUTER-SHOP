@@ -18,8 +18,17 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <JFXButton layoutX="261.0" layoutY="468.0" onAction="#btnSaveOnAction" prefHeight="39.0" prefWidth="90.0" style="-fx-background-color: BLACK;" text="SAVE" textFill="WHITE" />
-      <JFXButton layoutX="88.0" layoutY="468.0" onAction="#btnCancelOnAction" prefHeight="39.0" prefWidth="90.0" style="-fx-background-color: BLACK;" text="CANCEL" textFill="WHITE" />
-      <JFXButton layoutX="88.0" layoutY="391.0" onAction="#btnIdImageAddOnAction" prefHeight="39.0" prefWidth="263.0" style="-fx-background-color: BLACK;" text="ID IMAGE" textFill="WHITE" />
+      <JFXButton layoutX="261.0" layoutY="468.0" onAction="#btnSaveOnAction" prefHeight="39.0" prefWidth="90.0" style="-fx-background-color: BLACK;" text="SAVE" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></JFXButton>
+      <JFXButton layoutX="88.0" layoutY="468.0" onAction="#btnCancelOnAction" prefHeight="39.0" prefWidth="90.0" style="-fx-background-color: BLACK;" text="CANCEL" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></JFXButton>
+      <JFXButton layoutX="88.0" layoutY="391.0" onAction="#btnIdImageAddOnAction" prefHeight="39.0" prefWidth="263.0" style="-fx-background-color: BLACK;" text="ID IMAGE" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></JFXButton>
    </children>
 </AnchorPane>

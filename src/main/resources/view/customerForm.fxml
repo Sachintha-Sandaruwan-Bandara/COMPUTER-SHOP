@@ -28,7 +28,10 @@
             <String fx:value="table-row-cell" />
          </styleClass>
       </TableView>
-      <JFXButton fx:id="btnAddCustomer" layoutX="893.0" layoutY="258.0" onAction="#btnAddCustomerOnAction" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: BLACK;" text="ADD CUSTOMER" textFill="WHITE" />
+      <JFXButton fx:id="btnAddCustomer" layoutX="893.0" layoutY="258.0" onAction="#btnAddCustomerOnAction" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: BLACK;" text="ADD CUSTOMER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></JFXButton>
       <Pane layoutX="40.0" layoutY="61.0" prefHeight="243.0" prefWidth="591.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-radius: 10;">
          <children>
             <Label layoutX="32.0" layoutY="43.0" text="ID               :">
@@ -56,7 +59,10 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <JFXButton layoutX="32.0" layoutY="193.0" onAction="#btnVIewIdImageOnAction" prefHeight="36.0" prefWidth="117.0" style="-fx-border-color: GRAY;" text="VIEW ID IMAGE" />
+            <JFXButton layoutX="32.0" layoutY="193.0" onAction="#btnVIewIdImageOnAction" prefHeight="36.0" prefWidth="117.0" style="-fx-border-color: GRAY;" text="VIEW ID IMAGE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></JFXButton>
             <Label fx:id="lblId" layoutX="111.0" layoutY="43.0">
                <font>
                   <Font name="System Bold" size="14.0" />
@@ -85,6 +91,9 @@
          </children>
       </Pane>
       <TextField fx:id="txtSearchBar" layoutX="785.0" layoutY="36.0" onAction="#txtSearchBarOnAction" style="-fx-background-color: white; -fx-border-color: gray;" />
-      <JFXButton layoutX="936.0" layoutY="36.0" onAction="#btnSearchOnAction" style="-fx-border-color: gray;" text="search" />
+      <JFXButton layoutX="936.0" layoutY="36.0" onAction="#btnSearchOnAction" style="-fx-border-color: gray;" text="Search">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></JFXButton>
    </children>
 </AnchorPane>

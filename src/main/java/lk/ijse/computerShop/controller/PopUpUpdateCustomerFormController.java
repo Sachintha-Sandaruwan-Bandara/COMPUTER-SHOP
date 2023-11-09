@@ -87,7 +87,6 @@ public class PopUpUpdateCustomerFormController {
         }
 
         private void clear(){
-            txtId.clear();
             txtName.clear();
             txtAddress.clear();
             txtEmail.clear();

@@ -19,7 +19,13 @@
          </font>
       </Label>
       <TextField fx:id="txtPosition" layoutX="88.0" layoutY="409.0" prefHeight="46.0" prefWidth="263.0" promptText="POSITION" />
-      <JFXButton fx:id="btnSave" layoutX="336.0" layoutY="482.0" onAction="#btnSaveOnAction" prefHeight="39.0" prefWidth="90.0" style="-fx-background-color: BLACK;" text="SAVE" textFill="WHITE" />
-      <JFXButton layoutX="220.0" layoutY="482.0" onAction="#btnCancelOnAction" prefHeight="39.0" prefWidth="90.0" style="-fx-background-color: BLACK;" text="CANCEL" textFill="WHITE" />
+      <JFXButton fx:id="btnSave" layoutX="336.0" layoutY="482.0" onAction="#btnSaveOnAction" prefHeight="39.0" prefWidth="90.0" style="-fx-background-color: BLACK;" text="SAVE" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></JFXButton>
+      <JFXButton layoutX="220.0" layoutY="482.0" onAction="#btnCancelOnAction" prefHeight="39.0" prefWidth="90.0" style="-fx-background-color: BLACK;" text="CANCEL" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></JFXButton>
    </children>
 </AnchorPane>

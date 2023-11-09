@@ -7,6 +7,9 @@ import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import lk.ijse.computerShop.dto.CustomerDto;
@@ -18,6 +21,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 public class PopUpAddCustomerFormController {
+
+        @FXML
+        private AnchorPane ap;
         @FXML
         private TextField txtAddress;
 
@@ -40,6 +46,8 @@ public class PopUpAddCustomerFormController {
                 customerFormController.btnAddCustomer.setDisable(true);
                 customerFormController.tblCustomer.setDisable(true);
         }
+
+
 
         @FXML
         void btnCancelOnAction(ActionEvent event) {
@@ -101,4 +109,11 @@ public class PopUpAddCustomerFormController {
                 }
         }
 
+        @FXML
+        void btnCloseOnAction(ActionEvent event) {
+                customerFormController.btnAddCustomer.setDisable(false);
+                customerFormController.tblCustomer.setDisable(false);
+                Stage stage = (Stage) txtName.getScene().getWindow();
+                stage.close();
+        }
 }

@@ -80,7 +80,7 @@ public class Navigation {
         Parent root = FXMLLoader.load(Navigation.class.getResource("/view/" + url+".fxml"));
         Scene scene = new Scene(root);
         Stage stage = new Stage();
-        //stage.initStyle(StageStyle.UNDECORATED);
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
         stage.setAlwaysOnTop(true);
         stage.setTitle("");
