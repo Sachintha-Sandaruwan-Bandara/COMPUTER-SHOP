@@ -81,8 +81,9 @@ public class PopUpAddEmployeeFormController {
         if (isSaved){
             System.out.println("Employee saved!!");
             clear();
-//            Stage stage = (Stage) txtName.getScene().getWindow();
-//            stage.close();
+            empCon.loadAllEmployees();
+            Stage stage = (Stage) txtName.getScene().getWindow();
+            stage.close();
             empCon.btnAddEmployee.setDisable(false);
             empCon.tblEmployee.setDisable(false);
         }else {

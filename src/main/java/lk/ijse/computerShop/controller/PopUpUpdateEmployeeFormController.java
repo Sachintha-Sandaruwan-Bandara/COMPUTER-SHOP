@@ -8,6 +8,7 @@ import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import lk.ijse.computerShop.model.EmployeeModel;
 
 public class PopUpUpdateEmployeeFormController {
 
@@ -32,6 +33,12 @@ public class PopUpUpdateEmployeeFormController {
     @FXML
     private TextField txtPosition;
 
+    private EmployeeFormController employeeFormController;
+
+    public void initialize(){
+        employeeFormController=EmployeeFormController.employeeFormController;
+    }
+
     @FXML
     void btnCancelOnAction(ActionEvent event) {
 
@@ -39,6 +46,7 @@ public class PopUpUpdateEmployeeFormController {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
+
 
     }
 

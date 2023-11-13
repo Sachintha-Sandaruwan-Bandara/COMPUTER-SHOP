@@ -94,4 +94,24 @@ public class EmployeeModel {
             throw new RuntimeException(e);
         }
     }
+
+    public boolean deleteEmployee(String id) {
+        try {
+            Connection connection = DbConnection.getInstance().getConnection();
+            String sql="delete from employee where empID=?";
+            PreparedStatement pstm = connection.prepareStatement(sql);
+            pstm.setObject(1,id);
+
+            boolean b = pstm.executeUpdate() > 0;
+            return b;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public void updateEmployee(String updateEmployeeId) {
+
+    }
 }

@@ -88,11 +88,14 @@ public class EmployeeFormController {
 
     public static EmployeeFormController employeeFormController;
 
+    public  String updateEmployeeId;
+
     public void initialize(){
         employeeFormController=this;
         loadAllEmployees();
         setCellValueFactory();
         addButtonsToTable();
+
     }
 
     private void addButtonsToTable() {
@@ -108,7 +111,7 @@ public class EmployeeFormController {
 
 
             btnEdit.setOnAction(event -> {
-               String updateEmployeeId = param.getValue().getId();
+                updateEmployeeId = param.getValue().getId();
                 try {
 
                     Navigation.navigatePopUpWindow(Routes.UPDATEEMPLOYEE);
@@ -132,11 +135,12 @@ public class EmployeeFormController {
 
             btnDelete.setOnAction(event -> {
                 String id = param.getValue().getId();
-                CustomerModel customerModel = new CustomerModel();
-                boolean isDeleted = customerModel.deleteCustomer(id);
+                boolean isDeleted = new EmployeeModel().deleteEmployee(id);
 
                 if (isDeleted) {
+
                     System.out.println("customer deleted Successfully!!");
+                   loadAllEmployees();
 
                 } else {
                     System.out.println("something went wrong !!");
@@ -160,7 +164,7 @@ public class EmployeeFormController {
         colDelete.setCellValueFactory(new PropertyValueFactory<>("btnDelete"));
     }
 
-    private void loadAllEmployees() {
+    public void loadAllEmployees() {
         ArrayList<EmployeeDto> allEmployees = new EmployeeModel().getAllEmployees();
 
         ObservableList<EmployeeTm> obList = FXCollections.observableArrayList();
