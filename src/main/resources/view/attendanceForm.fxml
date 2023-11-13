@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="677.0" prefWidth="1037.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computerShop.controller.AttendanceFormController">
+   <children>
+      <TableView layoutX="10.0" layoutY="53.0" prefHeight="619.0" prefWidth="1017.0">
+        <columns>
+          <TableColumn prefWidth="133.3333387374878" text="C1" />
+        </columns>
+      </TableView>
+      <TextField layoutX="767.0" layoutY="14.0" />
+      <ComboBox layoutX="917.0" layoutY="14.0" prefHeight="25.0" prefWidth="106.0" promptText="emp ID" />
+   </children>
+</AnchorPane>

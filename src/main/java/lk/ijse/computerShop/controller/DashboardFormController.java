@@ -37,33 +37,33 @@ public class DashboardFormController {
     @FXML
     private AnchorPane subAnchorPane;
 
-    public void initialize(){
+    public void initialize() {
         generateRealTime();
     }
 
     @FXML
-    void btnAttendenceOnAction(ActionEvent event) {
-
+    void btnAttendenceOnAction(ActionEvent event) throws IOException {
+        Navigation.navigate(Routes.ATTENDANCE, subAnchorPane);
     }
 
     @FXML
     void btnCustomerOnAction(ActionEvent event) throws IOException {
-        Navigation.navigate(Routes.CUSTOMER,subAnchorPane);
+        Navigation.navigate(Routes.CUSTOMER, subAnchorPane);
     }
 
     @FXML
     void btnDashboardOnAction(ActionEvent event) throws IOException {
-        Navigation.navigate(Routes.DASHBOARD,mainAnchorPane);
+        Navigation.navigate(Routes.DASHBOARD, mainAnchorPane);
     }
 
     @FXML
     void btnEmployeeOnAction(ActionEvent event) throws IOException {
-        Navigation.navigate(Routes.EMPLOYEE,subAnchorPane);
+        Navigation.navigate(Routes.EMPLOYEE, subAnchorPane);
     }
 
     @FXML
-    void btnItemOnAction(ActionEvent event) {
-
+    void btnItemOnAction(ActionEvent event) throws IOException {
+        Navigation.navigate(Routes.ITEM, subAnchorPane);
     }
 
     @FXML
@@ -72,18 +72,19 @@ public class DashboardFormController {
     }
 
     @FXML
-    void btnOrderOnAction(ActionEvent event) {
+    void btnOrderOnAction(ActionEvent event) throws IOException {
 
+        Navigation.navigatePopUpWindow(Routes.PLACEORDERSELECT);
     }
 
     @FXML
-    void btnSalaryOnAction(ActionEvent event) {
-
+    void btnSalaryOnAction(ActionEvent event) throws IOException {
+        Navigation.navigate(Routes.SALARY, subAnchorPane);
     }
 
     @FXML
-    void btnServiceOnAction(ActionEvent event) {
-
+    void btnServiceOnAction(ActionEvent event) throws IOException {
+        Navigation.navigate(Routes.SERVICE, subAnchorPane);
     }
 
     @FXML
@@ -92,8 +93,8 @@ public class DashboardFormController {
     }
 
     @FXML
-    void btnSupplierOnAction(ActionEvent event) {
-
+    void btnSupplierOnAction(ActionEvent event) throws IOException {
+        Navigation.navigate(Routes.SUPPLIER, subAnchorPane);
     }
 
     /*-----DATE AND TIME GENERATE------*/

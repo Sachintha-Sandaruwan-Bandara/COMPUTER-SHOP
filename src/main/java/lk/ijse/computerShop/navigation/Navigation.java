@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -43,6 +44,31 @@ public class Navigation {
                 initUI("employeeForm.fxml");
                 window.setTitle("employee");
                 break;
+            case  ORDER:
+                initUI("orderForm.fxml");
+                window.setTitle("order");
+                break;
+            case  SERVICE:
+                initUI("serviceForm.fxml");
+                window.setTitle("service");
+                break;
+            case  SUPPLIER:
+                initUI("supplierForm.fxml");
+                window.setTitle("supplier");
+                break;
+            case  ITEM:
+                initUI("itemForm.fxml");
+                window.setTitle("item");
+                break;
+            case  ATTENDANCE:
+                initUI("attendanceForm.fxml");
+                window.setTitle("attendance");
+                break;
+            case  SALARY:
+                initUI("salaryForm.fxml");
+                window.setTitle("salary");
+                break;
+
 
 
             default:
@@ -69,7 +95,9 @@ public class Navigation {
             case UPDATEEMPLOYEE:
                 initPopUp("popUpUpdateEmployeeForm");
                 break;
-
+            case    PLACEORDERSELECT:
+                initPopUp("placeOrderSelectForm");
+                break;
         }
 
 
@@ -80,11 +108,13 @@ public class Navigation {
         Parent root = FXMLLoader.load(Navigation.class.getResource("/view/" + url+".fxml"));
         Scene scene = new Scene(root);
         Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
         stage.setAlwaysOnTop(true);
         stage.setTitle("");
-        stage.show();
+      //  stage.show();
+        stage.showAndWait();
 
 
     }
