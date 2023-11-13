@@ -6,6 +6,6 @@ package lk.ijse.computerShop;
 
 public class LauncherWrapper {
     public static void main(String[] args) {
-        Launcher.main(args);
+       Launcher.main(args);
     }
 }

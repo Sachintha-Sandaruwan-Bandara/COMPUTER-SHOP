@@ -4,9 +4,12 @@ package lk.ijse.computerShop.controller;
     @created 11/3/2023 - 7:40 PM 
 */
 
+import com.jfoenix.controls.JFXComboBox;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -21,7 +24,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class DashboardFormController {
-
+    @FXML
+    private JFXComboBox<String> orderComb;
     @FXML
     private Label lblDate;
 
@@ -38,7 +42,13 @@ public class DashboardFormController {
     private AnchorPane subAnchorPane;
 
     public void initialize() {
+
         generateRealTime();
+        ObservableList<String> options = FXCollections.observableArrayList(
+                "SELLING ORDER",
+                "BUYING ORDER"
+        );
+        orderComb.setItems(options);
     }
 
     @FXML
@@ -72,9 +82,14 @@ public class DashboardFormController {
     }
 
     @FXML
-    void btnOrderOnAction(ActionEvent event) throws IOException {
+    void combOrderOnAction(ActionEvent event) throws IOException {
+        if (orderComb.getValue().equals("BUYING ORDER")) {
+            Navigation.navigate(Routes.BUYINGORDER, subAnchorPane);
 
-        Navigation.navigatePopUpWindow(Routes.PLACEORDERSELECT);
+        } else if (orderComb.getValue().equals("SELLING ORDER")) {
+            Navigation.navigate(Routes.SELLINGORDER, subAnchorPane);
+
+        }
     }
 
     @FXML

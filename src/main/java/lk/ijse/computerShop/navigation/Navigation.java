@@ -44,9 +44,13 @@ public class Navigation {
                 initUI("employeeForm.fxml");
                 window.setTitle("employee");
                 break;
-            case  ORDER:
-                initUI("orderForm.fxml");
-                window.setTitle("order");
+            case  BUYINGORDER:
+                initUI("buyingOrderForm.fxml");
+                window.setTitle("buying order");
+                break;
+            case  SELLINGORDER:
+                initUI("sellingOrderForm.fxml");
+                window.setTitle("selling order");
                 break;
             case  SERVICE:
                 initUI("serviceForm.fxml");
