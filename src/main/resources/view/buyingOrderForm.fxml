@@ -1,17 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.computerShop.controller.BuyingOrderFormController"
-            prefHeight="677.0" prefWidth="1037.0">
-    <children>
-        <Label layoutX="496.0" layoutY="299.0" text="BUYING " />
-    </children>
+<AnchorPane prefHeight="677.0" prefWidth="1037.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computerShop.controller.BuyingOrderFormController">
+   <children>
+      <TableView layoutX="22.0" layoutY="317.0" prefHeight="249.0" prefWidth="993.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <JFXButton layoutX="893.0" layoutY="598.0" prefHeight="48.0" prefWidth="120.0" style="-fx-background-color: BLACK;" text="PLACE ORDER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="54.0" layoutY="606.0" prefHeight="38.0" prefWidth="120.0" text="TOTAL    :">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+   </children>
 
 </AnchorPane>

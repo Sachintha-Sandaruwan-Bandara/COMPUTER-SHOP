@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class EmployeeModel {
     public boolean saveEmployee(EmployeeDto employeeDto) {
@@ -65,5 +66,32 @@ public class EmployeeModel {
             throw new RuntimeException(e);
         }
 
+    }
+
+    public ArrayList<EmployeeDto> getAllEmployees() {
+        try {
+            Connection connection = DbConnection.getInstance().getConnection();
+           String sql="select * from employee";
+            PreparedStatement pstm = connection.prepareStatement(sql);
+
+            ResultSet resultSet = pstm.executeQuery();
+            ArrayList<EmployeeDto> list = new ArrayList<>();
+
+            while (resultSet.next()){
+               var dto= new EmployeeDto(
+                     resultSet.getString(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getString(4),
+                        resultSet.getString(5),
+                        resultSet.getString(6),
+                        resultSet.getBytes(7)
+                );
+               list.add(dto);
+            }
+            return list;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

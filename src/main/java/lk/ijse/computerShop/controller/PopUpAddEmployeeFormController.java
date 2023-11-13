@@ -17,8 +17,6 @@ import javafx.stage.Stage;
 import lk.ijse.computerShop.dto.EmployeeDto;
 import lk.ijse.computerShop.model.EmployeeModel;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
 import java.io.*;
 
 public class PopUpAddEmployeeFormController {

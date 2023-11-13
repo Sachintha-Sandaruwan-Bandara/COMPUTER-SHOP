@@ -77,8 +77,8 @@ public class DashboardFormController {
     }
 
     @FXML
-    void btnLogOutOnAction(ActionEvent event) {
-
+    void btnLogOutOnAction(ActionEvent event) throws IOException {
+        Navigation.navigate(Routes.LOGIN, mainAnchorPane);
     }
 
     @FXML
@@ -103,8 +103,8 @@ public class DashboardFormController {
     }
 
     @FXML
-    void btnSettingOnAction(ActionEvent event) {
-
+    void btnSettingOnAction(ActionEvent event) throws IOException {
+        Navigation.navigate(Routes.SETTING, subAnchorPane);
     }
 
     @FXML

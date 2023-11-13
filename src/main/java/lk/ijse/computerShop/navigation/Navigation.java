@@ -72,7 +72,10 @@ public class Navigation {
                 initUI("salaryForm.fxml");
                 window.setTitle("salary");
                 break;
-
+            case  SETTING:
+                initUI("settingForm.fxml");
+                window.setTitle("setting");
+                break;
 
 
             default:

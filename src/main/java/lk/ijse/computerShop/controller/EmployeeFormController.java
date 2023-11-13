@@ -5,22 +5,33 @@ package lk.ijse.computerShop.controller;
 */
 
 import com.jfoenix.controls.JFXButton;
+import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Cursor;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import lk.ijse.computerShop.dto.EmployeeDto;
+import lk.ijse.computerShop.dto.tm.CustomerTm;
+import lk.ijse.computerShop.dto.tm.EmployeeTm;
+import lk.ijse.computerShop.model.CustomerModel;
 import lk.ijse.computerShop.model.EmployeeModel;
 import lk.ijse.computerShop.navigation.Navigation;
 import lk.ijse.computerShop.navigation.Routes;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class EmployeeFormController {
 
@@ -73,7 +84,7 @@ public class EmployeeFormController {
     private TableColumn<?, ?> colPosition;
 
     @FXML
-    public TableView<?> tblEmployee;
+    public TableView<EmployeeTm> tblEmployee;
 
     public static EmployeeFormController employeeFormController;
 
@@ -85,14 +96,90 @@ public class EmployeeFormController {
     }
 
     private void addButtonsToTable() {
+
+        TableColumn<EmployeeTm, JFXButton> editCol = (TableColumn<EmployeeTm, JFXButton>) tblEmployee.getColumns().get(6);
+
+        editCol.setCellValueFactory(param -> {
+            JFXButton btnEdit = new JFXButton("       ");
+            btnEdit.setCursor(Cursor.HAND);
+            Font font = Font.font("Courier New", FontWeight.BOLD, 14);
+            btnEdit.setFont(font);
+            btnEdit.setStyle("-fx-graphic: url(/icons/edit.png)");
+
+
+            btnEdit.setOnAction(event -> {
+               String updateEmployeeId = param.getValue().getId();
+                try {
+
+                    Navigation.navigatePopUpWindow(Routes.UPDATEEMPLOYEE);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+
+            });
+            return new ReadOnlyObjectWrapper<>(btnEdit);
+        });
+        TableColumn<EmployeeTm, JFXButton> deleteCol = (TableColumn<EmployeeTm, JFXButton>) tblEmployee.getColumns().get(7);
+
+        deleteCol.setCellValueFactory(param -> {
+            JFXButton btnDelete = new JFXButton("       ");
+            btnDelete.setCursor(Cursor.HAND);
+            Font font = Font.font("Courier New", FontWeight.BOLD, 14);
+            btnDelete.setFont(font);
+            //btnDelete.setStyle("-fx-background-color: white");
+            btnDelete.setStyle("-fx-graphic: url(/icons/delete.png)");
+
+            btnDelete.setOnAction(event -> {
+                String id = param.getValue().getId();
+                CustomerModel customerModel = new CustomerModel();
+                boolean isDeleted = customerModel.deleteCustomer(id);
+
+                if (isDeleted) {
+                    System.out.println("customer deleted Successfully!!");
+
+                } else {
+                    System.out.println("something went wrong !!");
+                }
+
+
+            });
+            return new ReadOnlyObjectWrapper<>(btnDelete);
+        });
+
     }
 
     private void setCellValueFactory() {
-        
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        colMobile.setCellValueFactory(new PropertyValueFactory<>("mobile"));
+        colPosition.setCellValueFactory(new PropertyValueFactory<>("position"));
+        colEdit.setCellValueFactory(new PropertyValueFactory<>("btnEdit"));
+        colDelete.setCellValueFactory(new PropertyValueFactory<>("btnDelete"));
     }
 
     private void loadAllEmployees() {
-        
+        ArrayList<EmployeeDto> allEmployees = new EmployeeModel().getAllEmployees();
+
+        ObservableList<EmployeeTm> obList = FXCollections.observableArrayList();
+
+
+        for (EmployeeDto dto : allEmployees) {
+            obList.add(
+                    new EmployeeTm(
+                            dto.getId(),
+                            dto.getName(),
+                            dto.getAddress(),
+                            dto.getEmail(),
+                            dto.getMobile(),
+                            dto.getPosition()
+
+                    )
+            );
+        }
+        tblEmployee.setItems(obList);
     }
 
     @FXML
@@ -104,11 +191,13 @@ public class EmployeeFormController {
         clear();
         EmployeeModel employeeModel = new EmployeeModel();
         EmployeeDto employee = employeeModel.getEmployee(searchId.getText());
+
         id.setText(employee.getId());
         name.setText(employee.getName());
         address.setText(employee.getAddress());
         email.setText(employee.getEmail());
         mobile.setText(String.valueOf(employee.getMobile()));
+
         Image image = new Image(new ByteArrayInputStream(employee.getImageBytes()));
         imgView.setImage(image);
         imgView.fitHeightProperty();
