@@ -2,11 +2,13 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -24,7 +26,7 @@
                         <ImageView fitHeight="24.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
                     </graphic>
                     <font>
-                        <Font size="13.0" />
+                        <Font name="System Bold" size="15.0" />
                     </font>
                 </JFXButton>
                 <JFXButton layoutX="-10.0" layoutY="144.0" onAction="#btnCustomerOnAction" prefHeight="79.0" prefWidth="223.0" ripplerFill="BLACK" styleClass="animated-button1" stylesheets="@../css/Style.css" text=" Customer        " textFill="#fbfafa">
@@ -32,7 +34,7 @@
                         <ImageView fitHeight="28.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
                     </graphic>
                     <font>
-                        <Font size="13.0" />
+                        <Font name="System Bold" size="15.0" />
                     </font>
                 </JFXButton>
                 <JFXButton layoutX="-10.0" layoutY="184.0" onAction="#btnServiceOnAction" prefHeight="83.0" prefWidth="223.0" ripplerFill="BLACK" styleClass="animated-button1" stylesheets="@../css/Style.css" text="Service        " textFill="#fbfafa">
@@ -44,7 +46,7 @@
                         </ImageView>
                     </graphic>
                     <font>
-                        <Font size="13.0" />
+                        <Font name="System Bold" size="15.0" />
                     </font>
                 </JFXButton>
                 <JFXButton layoutX="-10.0" layoutY="264.0" onAction="#btnSupplierOnAction" prefHeight="80.0" prefWidth="219.0" ripplerFill="BLACK" styleClass="animated-button1" stylesheets="@../css/Style.css" text="Supplier       " textFill="#fbfafa">
@@ -56,7 +58,7 @@
                         </ImageView>
                     </graphic>
                     <font>
-                        <Font size="13.0" />
+                        <Font name="System Bold" size="15.0" />
                     </font>
                     <effect>
                         <Bloom />
@@ -71,7 +73,7 @@
                         </ImageView>
                     </graphic>
                     <font>
-                        <Font size="13.0" />
+                        <Font name="System Bold" size="15.0" />
                     </font>
                     <effect>
                         <Bloom />
@@ -86,7 +88,7 @@
                         </ImageView>
                     </graphic>
                     <font>
-                        <Font size="13.0" />
+                        <Font name="System Bold" size="15.0" />
                     </font>
                     <effect>
                         <Bloom />
@@ -101,7 +103,7 @@
                         </ImageView>
                     </graphic>
                     <font>
-                        <Font size="13.0" />
+                        <Font name="System Bold" size="15.0" />
                     </font>
                     <effect>
                         <Bloom />
@@ -116,7 +118,7 @@
                   </ImageView>
                </graphic>
                <font>
-                  <Font size="13.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
                <effect>
                   <Bloom />
@@ -133,7 +135,7 @@
                                 </ImageView>
                             </graphic>
                             <font>
-                                <Font size="13.0" />
+                                <Font name="System Bold" size="15.0" />
                             </font>
                         </JFXButton>
                         <JFXButton onAction="#btnLogOutOnAction" prefHeight="43.0" prefWidth="219.0" ripplerFill="BLACK" styleClass="animated-button1" stylesheets="@../assets/css/style.css" text="  logout             " textFill="#f4efef">
@@ -145,7 +147,7 @@
                                 </ImageView>
                             </graphic>
                             <font>
-                                <Font size="13.0" />
+                                <Font name="System Bold" size="15.0" />
                             </font>
                         </JFXButton>
                     </children>
@@ -156,9 +158,14 @@
                 <Insets />
             </opaqueInsets>
         </Pane>
-        <AnchorPane fx:id="subAnchorPane" layoutX="213.0" prefHeight="677.0" prefWidth="1037.0" style="-fx-background-color: #f1f2f6 #f1f2f6;">
+        <AnchorPane fx:id="subAnchorPane" layoutX="213.0" prefHeight="677.0" prefWidth="1037.0">
             <children>
-                <Pane layoutX="626.0" layoutY="137.0" prefHeight="223.0" prefWidth="386.0" style="-fx-background-color: #a29bfe; -fx-background-radius: 10;">
+            <Pane fx:id="bgclrPane" layoutX="-1.0" layoutY="-3.0" prefHeight="677.0" prefWidth="1037.0" style="-fx-background-color: A29BFE38;">
+               <children>
+                  <JFXToggleButton fx:id="darkMode" layoutX="951.0" layoutY="8.0" prefHeight="40.0" prefWidth="73.0" text=" " />
+               </children>
+            </Pane>
+                <Pane fx:id="detail5" layoutX="626.0" layoutY="137.0" prefHeight="223.0" prefWidth="386.0" style="-fx-background-color: #a29bfe; -fx-background-radius: 10;">
                     <children>
                         <Label layoutX="41.0" layoutY="37.0" prefHeight="48.0" prefWidth="91.0" text="890" textFill="WHITE">
                             <font>
@@ -177,8 +184,11 @@
                             </font>
                         </Label>
                     </children>
+               <effect>
+                  <DropShadow />
+               </effect>
                 </Pane>
-                <Pane layoutX="482.0" layoutY="143.0" prefHeight="211.0" prefWidth="119.0" style="-fx-background-color: #74b9ff; -fx-background-radius: 10;">
+                <Pane fx:id="detail4" layoutX="482.0" layoutY="143.0" prefHeight="211.0" prefWidth="119.0" style="-fx-background-color: #74b9ff; -fx-background-radius: 10;">
                     <children>
                         <Label layoutX="12.0" layoutY="33.0" prefHeight="48.0" prefWidth="91.0" text="167" textFill="WHITE">
                             <font>
@@ -191,8 +201,11 @@
                             </font>
                         </Label>
                     </children>
+               <effect>
+                  <DropShadow />
+               </effect>
                 </Pane>
-                <Pane layoutX="332.0" layoutY="140.0" prefHeight="211.0" prefWidth="119.0" style="-fx-background-color: #81ecec; -fx-background-radius: 10;">
+                <Pane fx:id="detail3" layoutX="332.0" layoutY="140.0" prefHeight="211.0" prefWidth="119.0" style="-fx-background-color: #81ecec; -fx-background-radius: 10;">
                     <children>
                         <Label layoutX="17.0" layoutY="36.0" prefHeight="48.0" prefWidth="60.0" text="618">
                             <font>
@@ -216,8 +229,11 @@
                             </font>
                         </Label>
                     </children>
+               <effect>
+                  <DropShadow />
+               </effect>
                 </Pane>
-                <Pane layoutX="189.0" layoutY="140.0" prefHeight="211.0" prefWidth="119.0" style="-fx-background-color: #55efc4; -fx-border-radius: 10; -fx-background-radius: 10;">
+                <Pane fx:id="detail2" layoutX="189.0" layoutY="140.0" prefHeight="211.0" prefWidth="119.0" style="-fx-background-color: #55efc4; -fx-border-radius: 10; -fx-background-radius: 10;">
                     <children>
                         <Label layoutX="12.0" layoutY="36.0" prefHeight="48.0" prefWidth="60.0" text="214">
                             <font>
@@ -241,8 +257,11 @@
                             </font>
                         </Label>
                     </children>
+               <effect>
+                  <DropShadow />
+               </effect>
                 </Pane>
-                <Pane layoutX="49.0" layoutY="140.0" prefHeight="211.0" prefWidth="119.0" style="-fx-background-color: #fab1a0; -fx-background-radius: 10;">
+                <Pane fx:id="detail1" layoutX="49.0" layoutY="140.0" prefHeight="211.0" prefWidth="119.0" style="-fx-background-color: #fab1a0; -fx-background-radius: 10;">
                     <children>
                         <Label layoutX="14.0" layoutY="38.0" prefHeight="48.0" prefWidth="66.0" text="510" textFill="WHITE">
                             <font>
@@ -266,6 +285,9 @@
                             </font>
                         </Label>
                     </children>
+               <effect>
+                  <DropShadow />
+               </effect>
                 </Pane>
                 <Label layoutX="113.0" layoutY="87.0" text="Find the best parts for your PC &amp; WorkStation" />
                 <Label layoutX="37.0" layoutY="53.0" text="WELCOME TO PC BUILDERS">
@@ -292,9 +314,18 @@
                             </image>
                         </ImageView>
                     </children>
+               <effect>
+                  <DropShadow />
+               </effect>
                 </Pane>
-                <JFXButton layoutX="799.0" layoutY="23.0" prefHeight="39.0" prefWidth="60.0" style="-fx-background-color: #3c40c6; -fx-background-radius: 0;" stylesheets="@../assets/css/style.css" text="Search" textFill="WHITE" />
-                <TextField layoutX="607.0" layoutY="23.0" prefHeight="39.0" prefWidth="192.0" style="-fx-background-radius: 0;" />
+                <JFXButton layoutX="886.0" layoutY="15.0" prefHeight="39.0" prefWidth="60.0" style="-fx-background-color: purple; -fx-background-radius: 0;" stylesheets="@../assets/css/style.css" text="Search" textFill="WHITE">
+               <effect>
+                  <DropShadow height="41.44" radius="13.649999999999999" width="15.16" />
+               </effect></JFXButton>
+                <TextField layoutX="694.0" layoutY="15.0" prefHeight="39.0" prefWidth="192.0" style="-fx-background-radius: 0; -fx-background-color: white; -fx-border-color: gray;">
+               <effect>
+                  <DropShadow />
+               </effect></TextField>
                 <Pane layoutX="524.0" layoutY="384.0" prefHeight="211.0" prefWidth="485.0" style="-fx-background-color: white; -fx-border-radius: 10; -fx-background-radius: 10;">
                     <children>
                         <Label layoutX="36.0" layoutY="22.0" text="WELCOME TO PC BUILDERS">
@@ -314,6 +345,9 @@
                             </font>
                         </Label>
                     </children>
+               <effect>
+                  <DropShadow />
+               </effect>
                 </Pane>
                 <Pane layoutX="36.0" layoutY="461.0" prefHeight="57.0" prefWidth="357.0" style="-fx-background-color: white; -fx-border-radius: 10; -fx-background-radius: 10;">
                     <children>
@@ -334,6 +368,9 @@
                             </image>
                         </ImageView>
                     </children>
+               <effect>
+                  <DropShadow />
+               </effect>
                 </Pane>
                 <Pane layoutX="39.0" layoutY="537.0" prefHeight="57.0" prefWidth="357.0" style="-fx-background-color: white; -fx-border-radius: 10; -fx-background-radius: 10;">
                     <children>
@@ -354,6 +391,9 @@
                             </image>
                         </ImageView>
                     </children>
+               <effect>
+                  <DropShadow />
+               </effect>
                 </Pane>
                 <Label fx:id="lblTimeMini" layoutX="23.0" layoutY="10.0" prefHeight="26.0" prefWidth="74.0" text="00:00:00">
                     <font>

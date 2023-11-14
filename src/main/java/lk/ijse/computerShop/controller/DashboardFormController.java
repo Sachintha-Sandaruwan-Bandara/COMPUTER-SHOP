@@ -5,6 +5,7 @@ package lk.ijse.computerShop.controller;
 */
 
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXToggleButton;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -14,6 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import lk.ijse.computerShop.navigation.Navigation;
 import lk.ijse.computerShop.navigation.Routes;
@@ -24,6 +26,23 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class DashboardFormController {
+    @FXML
+    private JFXToggleButton darkMode;
+    @FXML
+    private Pane detail1;
+
+    @FXML
+    private Pane detail2;
+    @FXML
+    private Pane bgclrPane;
+    @FXML
+    private Pane detail3;
+
+    @FXML
+    private Pane detail4;
+
+    @FXML
+    private Pane detail5;
     @FXML
     private JFXComboBox<String> orderComb;
     @FXML
@@ -122,6 +141,59 @@ public class DashboardFormController {
         }), new KeyFrame(Duration.seconds(1)));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
+
+        detail1.setOnMouseEntered(event -> {
+            bgclrPane.setStyle("-fx-background-color: rgba(250,177,160,0.25);");
+            lblTimeMini.setStyle("-fx-text-fill:white;");
+
+        });
+
+        // Add mouse exited event handler
+        detail1.setOnMouseExited(event -> {
+            //       subAnchorPane.setStyle("-fx-background-color: #ffffff;");
+        });
+        detail2.setOnMouseEntered(event -> {
+            bgclrPane.setStyle("-fx-background-color: rgba(85,239,196,0.26);");
+        });
+
+        // Add mouse exited event handler
+        detail2.setOnMouseExited(event -> {
+            //      subAnchorPane.setStyle("-fx-background-color: #ffffff;");
+        });
+        detail3.setOnMouseEntered(event -> {
+            bgclrPane.setStyle("-fx-background-color: rgba(129,236,236,0.25);");
+        });
+
+        // Add mouse exited event handler
+        detail3.setOnMouseExited(event -> {
+            //     subAnchorPane.setStyle("-fx-background-color: #ffffff;");
+        });
+        detail4.setOnMouseEntered(event -> {
+            bgclrPane.setStyle("-fx-background-color: rgba(116,185,255,0.26);");
+        });
+
+        // Add mouse exited event handler
+        detail4.setOnMouseExited(event -> {
+            //      subAnchorPane.setStyle("-fx-background-color: #ffffff;");
+        });
+        detail5.setOnMouseEntered(event -> {
+            bgclrPane.setStyle("-fx-background-color: rgba(162,155,254,0.22);");
+        });
+
+        // Add mouse exited event handler
+        detail5.setOnMouseExited(event -> {
+            //     subAnchorPane.setStyle("-fx-background-color: #ffffff;");
+        });
+        darkMode.setOnAction(event -> {
+            if (darkMode.isSelected()) {
+                System.out.println("Toggle button is ON");
+                subAnchorPane.setStyle("-fx-background-color: rgb(0,0,0);");
+
+            } else {
+                System.out.println("Toggle button is OFF");
+                subAnchorPane.setStyle("-fx-background-color: rgb(255,255,255);");
+            }
+        });
     }
 
 }
