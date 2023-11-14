@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="76.0" prefWidth="958.0" style="-fx-background-color: white; -fx-border-color: green; -fx-background-radius: 20; -fx-border-radius: 20;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <effect>
+      <DropShadow height="11.27" radius="2.3175" width="0.0" />
+   </effect>
+   <children>
+      <JFXButton fx:id="btnClear" layoutX="804.0" layoutY="16.0" style="-fx-background-color: white; -fx-border-color: gray;" text=" ">
+         <graphic>
+            <ImageView fitHeight="36.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/delete.png" />
+               </image>
+            </ImageView>
+         </graphic></JFXButton>
+      <Label fx:id="id" layoutX="35.0" layoutY="30.0" text="Label">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label fx:id="name" layoutX="166.0" layoutY="30.0" text="Label">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label fx:id="address" layoutX="324.0" layoutY="30.0" text="Label">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label fx:id="email" layoutX="451.0" layoutY="30.0" text="Label">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label fx:id="mobile" layoutX="583.0" layoutY="30.0" text="Label">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+   </children>
+</Pane>
