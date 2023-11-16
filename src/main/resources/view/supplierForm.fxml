@@ -11,9 +11,9 @@
 
 <AnchorPane prefHeight="677.0" prefWidth="1037.0" style="-fx-background-color: A29BFE38;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computerShop.controller.SupplierFormController">
    <children>
-      <ScrollPane fx:id="scrollPane" layoutX="13.0" layoutY="407.0" prefHeight="261.0" prefWidth="1003.0">
+      <ScrollPane fx:id="scrollPane" layoutX="3.0" layoutY="407.0" prefHeight="261.0" prefWidth="1031.0">
          <content>
-            <AnchorPane prefHeight="257.0" prefWidth="995.0">
+            <AnchorPane prefHeight="257.0" prefWidth="1039.0" style="-fx-background-color: A29BFE38;">
                <children>
                   <VBox fx:id="vBox" layoutX="9.0" prefHeight="63.0" prefWidth="979.0" />
                </children>
@@ -25,7 +25,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <TextField layoutX="756.0" layoutY="31.0" prefHeight="28.0" prefWidth="149.0" />
+      <TextField fx:id="searchTxt" layoutX="756.0" layoutY="31.0" onAction="#searchOnAction" prefHeight="28.0" prefWidth="149.0" />
       <JFXButton layoutX="906.0" layoutY="31.0" style="-fx-border-color: GRAY;" text="SEARCH" />
       <Pane layoutX="35.0" layoutY="69.0" prefHeight="254.0" prefWidth="591.0" style="-fx-background-color: GRAY;">
          <children>
@@ -50,6 +50,31 @@
                </font>
             </Label>
             <Label layoutX="43.0" layoutY="166.0" text="EMAIL">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblId" layoutX="135.0" layoutY="59.0" text="ID">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblName" layoutX="135.0" layoutY="89.0" text="ID">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblAddress" layoutX="135.0" layoutY="117.0" text="ID">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblMobile" layoutX="135.0" layoutY="140.0" text="ID">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblEmail" layoutX="135.0" layoutY="166.0" text="ID">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>

@@ -2,20 +2,16 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="row" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="76.0" prefWidth="958.0" style="-fx-background-color: rgba(0,0,255,0);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-   <effect>
-      <DropShadow height="11.27" radius="2.3175" width="0.0" />
-   </effect>
+<Pane fx:id="row" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="76.0" prefWidth="1018.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Pane layoutX="6.0" layoutY="7.0" prefHeight="61.0" prefWidth="945.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: gray; -fx-background-color: white;" />
-      <Pane fx:id="colourPane" layoutX="6.0" layoutY="6.0" prefHeight="61.0" prefWidth="945.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: gray;" />
-      <JFXButton fx:id="btnClear1" layoutX="727.0" layoutY="16.0" text=" ">
+      <Pane layoutX="6.0" layoutY="7.0" prefHeight="61.0" prefWidth="998.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" />
+      <Pane fx:id="colourPane" layoutX="6.0" layoutY="6.0" prefHeight="61.0" prefWidth="998.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" />
+      <JFXButton fx:id="btnEdit" layoutX="791.0" layoutY="16.0" text=" ">
          <graphic>
             <ImageView fitHeight="33.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -24,33 +20,39 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton fx:id="btnClear" layoutX="857.0" layoutY="13.0" ripplerFill="#ff0202" text=" ">
+      <JFXButton fx:id="btnClear" layoutX="908.0" layoutY="13.0" ripplerFill="#ff0202" text=" ">
          <graphic>
             <ImageView fitHeight="36.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../icons/delete.png" />
                </image>
             </ImageView>
-         </graphic></JFXButton>
+         </graphic>
+      </JFXButton>
       <Label fx:id="id" layoutX="35.0" layoutY="30.0" text="Label">
          <font>
             <Font name="System Bold" size="14.0" />
-         </font></Label>
-      <Label fx:id="name" layoutX="166.0" layoutY="30.0" text="Label">
+         </font>
+      </Label>
+      <Label fx:id="name" layoutX="174.0" layoutY="30.0" text="Label">
          <font>
             <Font name="System Bold" size="14.0" />
-         </font></Label>
+         </font>
+      </Label>
       <Label fx:id="address" layoutX="324.0" layoutY="30.0" text="Label">
          <font>
             <Font name="System Bold" size="14.0" />
-         </font></Label>
-      <Label fx:id="email" layoutX="451.0" layoutY="30.0" text="Label">
+         </font>
+      </Label>
+      <Label fx:id="email" layoutX="421.0" layoutY="30.0" text="sachib843@gmail.com">
          <font>
             <Font name="System Bold" size="14.0" />
-         </font></Label>
-      <Label fx:id="mobile" layoutX="583.0" layoutY="30.0" text="Label">
+         </font>
+      </Label>
+      <Label fx:id="mobile" layoutX="641.0" layoutY="30.0" text="Label" textFill="#88d28a">
          <font>
             <Font name="System Bold" size="14.0" />
-         </font></Label>
+         </font>
+      </Label>
    </children>
 </Pane>

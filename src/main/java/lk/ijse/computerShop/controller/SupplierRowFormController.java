@@ -8,6 +8,7 @@ import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
 
 public class SupplierRowFormController {
     @FXML
@@ -26,7 +27,20 @@ public class SupplierRowFormController {
     @FXML
     public Label name;
 
+    @FXML
+    private Pane colourPane;
 
+    public Pane getColourPane() {
+        return colourPane;
+    }
+
+    @FXML
+    private Pane row;
+
+
+    public Pane getRow() {
+        return row;
+    }
 
 
     public void setAddress(String address) {

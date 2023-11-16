@@ -37,10 +37,8 @@ public class PopUpUpdateCustomerFormController {
 
 
         public void initialize(){
-            this.customerFormController=CustomerFormController.customerFormController;
-            loadCustomerDetails(customerFormController.updateCustomerId);
-            customerFormController.btnAddCustomer.setDisable(true);
-            customerFormController.tblCustomer.setDisable(true);
+           loadCustomerDetails(CustomerFormController.customerFormController.updateCustomerId);
+
         }
 
         private void loadCustomerDetails(String  updateCustomerId) {
@@ -60,7 +58,7 @@ public class PopUpUpdateCustomerFormController {
         }
 
         @FXML
-        void btnSaveOnAction(ActionEvent event) {
+        void btnSaveOnAction(ActionEvent event) throws IOException {
            var dto= new CustomerDto(
                     txtId.getText(),
                     txtName.getText(),
@@ -74,11 +72,7 @@ public class PopUpUpdateCustomerFormController {
             boolean isUpdated = customerModel.updateCustomer(dto);
             if (isUpdated){
                 System.out.println("customer Updated Successfully!!!");
-
-                customerFormController.btnAddCustomer.setDisable(false);
-                customerFormController.tblCustomer.setDisable(false);
-
-                customerFormController.loadAllCustomers();
+                CustomerFormController.customerFormController.loadAllCustomers();
                 Stage stage = (Stage) txtName.getScene().getWindow();
                 stage.close();
             }else{

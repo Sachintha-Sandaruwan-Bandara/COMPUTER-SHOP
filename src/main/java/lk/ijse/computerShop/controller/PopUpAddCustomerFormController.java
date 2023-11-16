@@ -40,11 +40,10 @@ public class PopUpAddCustomerFormController {
         private TextField txtName;
 
         private byte [] imageBytes;
-        private CustomerFormController customerFormController;
+
         public void initialize(){
-                this.customerFormController=CustomerFormController.customerFormController;
-                customerFormController.btnAddCustomer.setDisable(true);
-                customerFormController.tblCustomer.setDisable(true);
+
+
         }
 
 
@@ -55,7 +54,7 @@ public class PopUpAddCustomerFormController {
         }
 
         @FXML
-        void btnSaveOnAction(ActionEvent event) {
+        void btnSaveOnAction(ActionEvent event) throws IOException {
                 String id = txtId.getText();
                 String name = txtName.getText();
                 String address = txtAddress.getText();
@@ -70,9 +69,9 @@ public class PopUpAddCustomerFormController {
 
                 if (isSaved){
                         System.out.println("customer saved!!");
-                       customerFormController.loadAllCustomers();
-                       customerFormController.btnAddCustomer.setDisable(false);
-                       customerFormController.tblCustomer.setDisable(false);
+                     CustomerFormController.customerFormController.loadAllCustomers();
+
+
 
                         Stage stage = (Stage) txtName.getScene().getWindow();
                         stage.close();
@@ -111,8 +110,7 @@ public class PopUpAddCustomerFormController {
 
         @FXML
         void btnCloseOnAction(ActionEvent event) {
-                customerFormController.btnAddCustomer.setDisable(false);
-                customerFormController.tblCustomer.setDisable(false);
+
                 Stage stage = (Stage) txtName.getScene().getWindow();
                 stage.close();
         }

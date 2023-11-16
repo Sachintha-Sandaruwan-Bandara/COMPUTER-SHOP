@@ -2,35 +2,21 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="677.0" prefWidth="1037.0" style="-fx-background-color: A29BFE38;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computerShop.controller.CustomerFormController">
    <children>
-      <TableView fx:id="tblCustomer" layoutX="28.0" layoutY="329.0" prefHeight="325.0" prefWidth="983.0" stylesheets="@../css/Style.css">
-        <columns>
-          <TableColumn fx:id="colId" prefWidth="151.3333396911621" text="CUSTOMER ID" />
-            <TableColumn fx:id="colName" prefWidth="151.3333396911621" text="NAME" />
-            <TableColumn fx:id="colAddress" prefWidth="151.3333396911621" text="ADDRESS" />
-            <TableColumn fx:id="colMobile" prefWidth="151.3333396911621" text="MOBILE" />
-            <TableColumn fx:id="colEmail" prefWidth="151.3333396911621" text="E-MAIL" />
-            <TableColumn fx:id="colEdit" prefWidth="109.3333740234375" />
-            <TableColumn fx:id="colDelete" prefWidth="109.3333740234375" />
-        </columns>
-         <effect>
-            <DropShadow height="19.05" radius="14.967500000000001" width="42.82" />
-         </effect>
-      </TableView>
-      <JFXButton fx:id="btnAddCustomer" layoutX="893.0" layoutY="258.0" onAction="#btnAddCustomerOnAction" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: BLACK;" text="ADD CUSTOMER" textFill="WHITE">
+      <JFXButton fx:id="btnAddCustomer" layoutX="909.0" layoutY="227.0" onAction="#btnAddCustomerOnAction" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: BLACK;" text="ADD CUSTOMER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></JFXButton>
-      <Pane layoutX="40.0" layoutY="61.0" prefHeight="243.0" prefWidth="591.0" style="-fx-border-color: gray; -fx-background-color: white; -fx-border-radius: 10; -fx-background-radius: 10;">
+      <Pane layoutX="27.0" layoutY="29.0" prefHeight="243.0" prefWidth="591.0" style="-fx-border-color: gray; -fx-background-color: white; -fx-border-radius: 10; -fx-background-radius: 10;">
          <children>
             <Label layoutX="32.0" layoutY="43.0" text="ID               :">
                <font>
@@ -96,5 +82,14 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></JFXButton>
+      <ScrollPane fx:id="scrollPane" layoutX="2.0" layoutY="296.0" prefHeight="378.0" prefWidth="1031.0">
+         <content>
+            <AnchorPane fx:id="anchorPane" prefHeight="377.0" prefWidth="1015.0" style="-fx-background-color: A29BFE38;">
+               <children>
+                  <VBox fx:id="vBox" layoutX="4.0" layoutY="1.0" prefHeight="75.0" prefWidth="1007.0" />
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>
