@@ -5,30 +5,22 @@ package lk.ijse.computerShop.controller;
 */
 
 import com.jfoenix.controls.JFXButton;
-import javafx.beans.property.ReadOnlyObjectWrapper;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import lk.ijse.computerShop.dto.CustomerDto;
 import lk.ijse.computerShop.dto.tm.CustomerTm;
 import lk.ijse.computerShop.model.CustomerModel;
-import lk.ijse.computerShop.model.EmployeeModel;
 import lk.ijse.computerShop.navigation.Navigation;
 import lk.ijse.computerShop.navigation.Routes;
 
@@ -147,6 +139,7 @@ public class CustomerFormController {
             //set actions to row buttons
             btnClear.setOnAction(actionEvent -> {
                 System.out.println("cleard");
+
                new CustomerModel().deleteCustomer(id);
                 vBox1.getChildren().clear();
             });
@@ -165,7 +158,11 @@ public class CustomerFormController {
             vBox.getChildren().add(vBox1);
 
             colourPane.setOnMouseEntered(mouseEvent -> {
-                colourPane.setStyle("-fx-border-color: #6ab46a;-fx-border-radius: 20;-fx-background-color: rgba(0,128,0,0.16)");
+                colourPane.setStyle("-fx-border-color: #16a085;-fx-border-radius: 20;-fx-background-color: rgba(22,160,133,0.18);-fx-background-radius: 20;");
+            });
+            colourPane.setOnMouseClicked(mouseEvent -> {
+                colourPane.setStyle("-fx-border-color: #16a085;-fx-border-radius: 20;-fx-background-color: rgba(22,160,133,0.18);-fx-background-radius: 20;");
+
             });
             colourPane.setOnMouseExited(mouseEvent -> {
                 colourPane.setStyle("");

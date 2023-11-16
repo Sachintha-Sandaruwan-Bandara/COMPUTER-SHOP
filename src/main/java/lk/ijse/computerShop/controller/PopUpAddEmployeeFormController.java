@@ -56,6 +56,7 @@ public class PopUpAddEmployeeFormController {
         empCon.btnAddEmployee.setDisable(true);
         empCon.tblEmployee.setDisable(true);
 
+
     }
     @FXML
     void btnCancelOnAction(ActionEvent event) {

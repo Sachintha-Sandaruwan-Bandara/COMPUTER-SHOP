@@ -10,9 +10,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="677.0" prefWidth="1037.0" style="-fx-background-color: A29BFE38;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computerShop.controller.CustomerFormController">
+<AnchorPane prefHeight="677.0" prefWidth="1037.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computerShop.controller.CustomerFormController">
    <children>
-      <JFXButton fx:id="btnAddCustomer" layoutX="909.0" layoutY="227.0" onAction="#btnAddCustomerOnAction" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: BLACK;" text="ADD CUSTOMER" textFill="WHITE">
+      <Pane layoutX="22.0" layoutY="336.0" prefHeight="36.0" prefWidth="997.0" style="-fx-background-color: white;" />
+      <JFXButton fx:id="btnAddCustomer" layoutX="909.0" layoutY="227.0" onAction="#btnAddCustomerOnAction" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #16a085;" text="ADD CUSTOMER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></JFXButton>
@@ -82,14 +83,44 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></JFXButton>
-      <ScrollPane fx:id="scrollPane" layoutX="2.0" layoutY="296.0" prefHeight="378.0" prefWidth="1031.0">
+      <ScrollPane fx:id="scrollPane" layoutX="23.0" layoutY="375.0" prefHeight="299.0" prefWidth="997.0">
          <content>
-            <AnchorPane fx:id="anchorPane" prefHeight="377.0" prefWidth="1015.0" style="-fx-background-color: A29BFE38;">
+            <AnchorPane fx:id="anchorPane" prefHeight="377.0" prefWidth="978.0" style="-fx-background-color: white;">
                <children>
-                  <VBox fx:id="vBox" layoutX="4.0" layoutY="1.0" prefHeight="75.0" prefWidth="1007.0" />
+                  <VBox fx:id="vBox" layoutX="4.0" layoutY="1.0" prefHeight="75.0" prefWidth="977.0" />
                </children>
             </AnchorPane>
          </content>
       </ScrollPane>
+      <Label layoutX="49.0" layoutY="346.0" text="ID">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="188.0" layoutY="346.0" text="NAME">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="338.0" layoutY="346.0" text="ADDRESS">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="491.0" layoutY="346.0" text="E-MAIL">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="655.0" layoutY="346.0" text="MOBILE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="851.0" layoutY="346.0" text="ACTION">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

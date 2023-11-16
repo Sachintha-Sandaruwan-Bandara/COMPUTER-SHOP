@@ -127,4 +127,33 @@ public class CustomerModel {
             throw new RuntimeException(e);
         }
     }
+
+    public String getLastCustomerId() {
+        try {
+            Connection connection = DbConnection.getInstance().getConnection();
+            String sql="SELECT cusID FROM customer ORDER BY cusID DESC LIMIT 1";
+            ResultSet resultSet = connection.prepareStatement(sql).executeQuery();
+
+            String currentCusId = null;
+
+            if(resultSet.next()) {
+                currentCusId= resultSet.getString(1);
+                return splitOrderId(currentCusId);
+            }
+            return splitOrderId(null);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private String splitOrderId(String currentCusId) {
+        if(currentCusId != null) {
+            String[] split = currentCusId.split("c");
+            int id = Integer.parseInt(split[1]);    //008
+            id ++;  //9
+            return "c00" + id;
+        }
+        return "c001";
+    }
 }

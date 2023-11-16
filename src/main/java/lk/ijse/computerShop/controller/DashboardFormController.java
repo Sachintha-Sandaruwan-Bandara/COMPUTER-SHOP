@@ -187,7 +187,7 @@ public class DashboardFormController {
         darkMode.setOnAction(event -> {
             if (darkMode.isSelected()) {
                 System.out.println("Toggle button is ON");
-                subAnchorPane.setStyle("-fx-background-color: rgb(0,0,0);");
+                subAnchorPane.setStyle("-fx-background-color: rgb(44,62,80);");
 
             } else {
                 System.out.println("Toggle button is OFF");
