@@ -18,7 +18,7 @@ public class EmployeeModel {
         try {
             Connection connection = DbConnection.getInstance().getConnection();
 
-            String sql="insert  into employee values (?,?,?,?,?,?,?)";
+            String sql = "insert  into employee values (?,?,?,?,?,?,?)";
             PreparedStatement pstm = connection.prepareStatement(sql);
 
             pstm.setObject(1, employeeDto.getId());
@@ -38,17 +38,17 @@ public class EmployeeModel {
 
     }
 
-    public EmployeeDto getEmployee(String id){
+    public EmployeeDto getEmployee(String id) {
         try {
             Connection connection = DbConnection.getInstance().getConnection();
-            String sql="select * from employee where empID=?";
+            String sql = "select * from employee where empID=?";
             PreparedStatement pstm = connection.prepareStatement(sql);
-            pstm.setObject(1,id);
+            pstm.setObject(1, id);
 
             ResultSet resultSet = pstm.executeQuery();
-            EmployeeDto employee=null;
-            if (resultSet.next()){
-                 employee=new EmployeeDto(
+            EmployeeDto employee = null;
+            if (resultSet.next()) {
+                employee = new EmployeeDto(
                         resultSet.getString(1),
                         resultSet.getString(2),
                         resultSet.getString(3),
@@ -60,7 +60,8 @@ public class EmployeeModel {
 
                 );
 
-            }  return employee;
+            }
+            return employee;
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -71,15 +72,15 @@ public class EmployeeModel {
     public ArrayList<EmployeeDto> getAllEmployees() {
         try {
             Connection connection = DbConnection.getInstance().getConnection();
-           String sql="select * from employee";
+            String sql = "select * from employee";
             PreparedStatement pstm = connection.prepareStatement(sql);
 
             ResultSet resultSet = pstm.executeQuery();
             ArrayList<EmployeeDto> list = new ArrayList<>();
 
-            while (resultSet.next()){
-               var dto= new EmployeeDto(
-                     resultSet.getString(1),
+            while (resultSet.next()) {
+                var dto = new EmployeeDto(
+                        resultSet.getString(1),
                         resultSet.getString(2),
                         resultSet.getString(3),
                         resultSet.getString(4),
@@ -87,7 +88,7 @@ public class EmployeeModel {
                         resultSet.getString(6),
                         resultSet.getBytes(7)
                 );
-               list.add(dto);
+                list.add(dto);
             }
             return list;
         } catch (SQLException e) {
@@ -98,9 +99,9 @@ public class EmployeeModel {
     public boolean deleteEmployee(String id) {
         try {
             Connection connection = DbConnection.getInstance().getConnection();
-            String sql="delete from employee where empID=?";
+            String sql = "delete from employee where empID=?";
             PreparedStatement pstm = connection.prepareStatement(sql);
-            pstm.setObject(1,id);
+            pstm.setObject(1, id);
 
             boolean b = pstm.executeUpdate() > 0;
             return b;
@@ -111,7 +112,27 @@ public class EmployeeModel {
 
     }
 
-    public void updateEmployee(String updateEmployeeId) {
+    public boolean updateEmployee(EmployeeDto dto) {
+        try {
+            Connection connection = DbConnection.getInstance().getConnection();
+            String sql = "UPDATE employee SET empID=?,name=?,address=?,email=?,mobile=?,position=?,image=? WHERE empID=?";
+            PreparedStatement pstm = connection.prepareStatement(sql);
+            pstm.setObject(1,dto.getId());
+            pstm.setObject(2,dto.getName());
+            pstm.setObject(3,dto.getAddress());
+            pstm.setObject(4,dto.getEmail());
+            pstm.setObject(5,dto.getMobile());
+            pstm.setObject(6,dto.getPosition());
+            pstm.setObject(7,dto.getImageBytes());
+            pstm.setObject(8,dto.getId());
+
+            boolean b = pstm.executeUpdate() > 0;
+
+            return b;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 }

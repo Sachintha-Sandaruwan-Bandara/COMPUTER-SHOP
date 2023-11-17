@@ -152,7 +152,8 @@ public class CustomerModel {
             String[] split = currentCusId.split("c");
             int id = Integer.parseInt(split[1]);    //008
             id ++;  //9
-            return "c00" + id;
+           // return "c00" + id;
+            return String.format("c%03d", id); // Formats the integer with leading zeros
         }
         return "c001";
     }

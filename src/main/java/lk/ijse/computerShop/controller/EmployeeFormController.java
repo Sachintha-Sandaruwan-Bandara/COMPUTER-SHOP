@@ -10,17 +10,22 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
+import javafx.scene.Node;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import lk.ijse.computerShop.dto.CustomerDto;
 import lk.ijse.computerShop.dto.EmployeeDto;
 import lk.ijse.computerShop.dto.tm.CustomerTm;
 import lk.ijse.computerShop.dto.tm.EmployeeTm;
@@ -59,30 +64,9 @@ public class EmployeeFormController {
     @FXML
     public JFXButton btnAddEmployee;
 
-    @FXML
-    private TableColumn<?, ?> colAddress;
 
     @FXML
-    private TableColumn<?, ?> colDelete;
-
-    @FXML
-    private TableColumn<?, ?> colEdit;
-
-    @FXML
-    private TableColumn<?, ?> colEmail;
-
-    @FXML
-    private TableColumn<?, ?> colId;
-
-    @FXML
-    private TableColumn<?, ?> colMobile;
-
-    @FXML
-    private TableColumn<?, ?> colName;
-
-    @FXML
-    private TableColumn<?, ?> colPosition;
-
+    private VBox vBox;
     @FXML
     public TableView<EmployeeTm> tblEmployee;
 
@@ -90,100 +74,92 @@ public class EmployeeFormController {
 
     public  String updateEmployeeId;
 
-    public void initialize(){
+    public void initialize() throws IOException {
         employeeFormController=this;
         loadAllEmployees();
-        setCellValueFactory();
-        addButtonsToTable();
+
 
     }
 
-    private void addButtonsToTable() {
-
-        TableColumn<EmployeeTm, JFXButton> editCol = (TableColumn<EmployeeTm, JFXButton>) tblEmployee.getColumns().get(6);
-
-        editCol.setCellValueFactory(param -> {
-            JFXButton btnEdit = new JFXButton("       ");
-            btnEdit.setCursor(Cursor.HAND);
-            Font font = Font.font("Courier New", FontWeight.BOLD, 14);
-            btnEdit.setFont(font);
-            btnEdit.setStyle("-fx-graphic: url(/icons/edit.png)");
 
 
-            btnEdit.setOnAction(event -> {
-                updateEmployeeId = param.getValue().getId();
+
+    public void loadAllEmployees() throws IOException {
+        //refresh view(clear old records before added new records)
+        vBox.getChildren().clear();
+
+
+        ArrayList<EmployeeDto> allEmployees = new EmployeeModel().getAllEmployees();
+        // get dto details to raws
+        for (int i = 0; i < allEmployees.size(); i++) {
+
+            //create new v box to hold records
+            VBox vBox1 = new VBox();
+            vBox1.setSpacing(20);
+
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/employeeRowForm.fxml"));
+            //create row controller
+            EmployeeRowFormController employeeRowFormController = new EmployeeRowFormController();
+            //controller set to fxml
+            fxmlLoader.setController(employeeRowFormController);
+
+            Node node = fxmlLoader.load();
+
+            //set values to rows
+            employeeRowFormController.setId(allEmployees.get(i).getId());
+            employeeRowFormController.setName(allEmployees.get(i).getName());
+            employeeRowFormController.setAddress(allEmployees.get(i).getAddress());
+            employeeRowFormController.setEmail(allEmployees.get(i).getEmail());
+            employeeRowFormController.setMobile(allEmployees.get(i).getMobile());
+            employeeRowFormController.setPosition(allEmployees.get(i).getPosition());
+
+            //get row buttons for set action
+            JFXButton btnClear = employeeRowFormController.getBtnClear();
+            JFXButton btnEdit = employeeRowFormController.getBtnEdit();
+
+            //get Rows for set styles
+            Pane row = employeeRowFormController.getRow();
+            Pane colourPane = employeeRowFormController.getColourPane();
+
+            //each row has own customer id for row clicked Actions
+            String id=allEmployees.get(i).getId();
+            row.setId(id);
+
+            //set actions to row buttons
+            btnClear.setOnAction(actionEvent -> {
+                System.out.println("cleard");
+
+                new EmployeeModel().deleteEmployee(id);
+                vBox1.getChildren().clear();
+            });
+
+            btnEdit.setOnAction(actionEvent -> {
                 try {
-
+                    updateEmployeeId=id;
                     Navigation.navigatePopUpWindow(Routes.UPDATEEMPLOYEE);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
+            });
 
+            vBox1.getChildren().clear();
+            vBox1.getChildren().add(node);
+            vBox.getChildren().add(vBox1);
+
+            colourPane.setOnMouseEntered(mouseEvent -> {
+                colourPane.setStyle("-fx-border-color: #16a085;-fx-border-radius: 20;-fx-background-color: rgba(22,160,133,0.18);-fx-background-radius: 20;");
+            });
+            colourPane.setOnMouseClicked(mouseEvent -> {
+                colourPane.setStyle("-fx-border-color: #16a085;-fx-border-radius: 20;-fx-background-color: rgba(22,160,133,0.18);-fx-background-radius: 20;");
 
             });
-            return new ReadOnlyObjectWrapper<>(btnEdit);
-        });
-        TableColumn<EmployeeTm, JFXButton> deleteCol = (TableColumn<EmployeeTm, JFXButton>) tblEmployee.getColumns().get(7);
-
-        deleteCol.setCellValueFactory(param -> {
-            JFXButton btnDelete = new JFXButton("       ");
-            btnDelete.setCursor(Cursor.HAND);
-            Font font = Font.font("Courier New", FontWeight.BOLD, 14);
-            btnDelete.setFont(font);
-            //btnDelete.setStyle("-fx-background-color: white");
-            btnDelete.setStyle("-fx-graphic: url(/icons/delete.png)");
-
-            btnDelete.setOnAction(event -> {
-                String id = param.getValue().getId();
-                boolean isDeleted = new EmployeeModel().deleteEmployee(id);
-
-                if (isDeleted) {
-
-                    System.out.println("customer deleted Successfully!!");
-                   loadAllEmployees();
-
-                } else {
-                    System.out.println("something went wrong !!");
-                }
-
-
+            colourPane.setOnMouseExited(mouseEvent -> {
+                colourPane.setStyle("");
             });
-            return new ReadOnlyObjectWrapper<>(btnDelete);
-        });
 
-    }
-
-    private void setCellValueFactory() {
-        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
-        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-        colMobile.setCellValueFactory(new PropertyValueFactory<>("mobile"));
-        colPosition.setCellValueFactory(new PropertyValueFactory<>("position"));
-        colEdit.setCellValueFactory(new PropertyValueFactory<>("btnEdit"));
-        colDelete.setCellValueFactory(new PropertyValueFactory<>("btnDelete"));
-    }
-
-    public void loadAllEmployees() {
-        ArrayList<EmployeeDto> allEmployees = new EmployeeModel().getAllEmployees();
-
-        ObservableList<EmployeeTm> obList = FXCollections.observableArrayList();
-
-
-        for (EmployeeDto dto : allEmployees) {
-            obList.add(
-                    new EmployeeTm(
-                            dto.getId(),
-                            dto.getName(),
-                            dto.getAddress(),
-                            dto.getEmail(),
-                            dto.getMobile(),
-                            dto.getPosition()
-
-                    )
-            );
         }
-        tblEmployee.setItems(obList);
+
+
     }
 
     @FXML

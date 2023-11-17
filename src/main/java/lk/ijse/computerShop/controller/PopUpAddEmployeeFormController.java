@@ -53,8 +53,7 @@ public class PopUpAddEmployeeFormController {
 
     public void initialize(){
         empCon=EmployeeFormController.employeeFormController;
-        empCon.btnAddEmployee.setDisable(true);
-        empCon.tblEmployee.setDisable(true);
+
 
 
     }
@@ -64,7 +63,7 @@ public class PopUpAddEmployeeFormController {
     }
 
     @FXML
-    void btnSaveOnAction(ActionEvent event) {
+    void btnSaveOnAction(ActionEvent event) throws IOException {
         EmployeeDto employeeDto = new EmployeeDto(
                 txtId.getText(),
                 txtName.getText(),
@@ -83,10 +82,9 @@ public class PopUpAddEmployeeFormController {
             System.out.println("Employee saved!!");
             clear();
             empCon.loadAllEmployees();
-            Stage stage = (Stage) txtName.getScene().getWindow();
+            Stage stage = (Stage) btnAddImage.getScene().getWindow();
             stage.close();
-            empCon.btnAddEmployee.setDisable(false);
-            empCon.tblEmployee.setDisable(false);
+
         }else {
             System.out.println("Employee not saved!!");
         }
