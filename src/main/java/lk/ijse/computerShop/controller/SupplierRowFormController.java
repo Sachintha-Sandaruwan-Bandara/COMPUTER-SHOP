@@ -5,46 +5,57 @@ package lk.ijse.computerShop.controller;
 */
 
 import com.jfoenix.controls.JFXButton;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
 public class SupplierRowFormController {
-    @FXML
-    public JFXButton btnClear;
-    @FXML
-    public Label address;
-    @FXML
-    public Label email;
-
-    @FXML
-    public Label id;
-
-    @FXML
-    public Label mobile;
-
-    @FXML
-    public Label name;
-
-    @FXML
-    private Pane colourPane;
-
-    public Pane getColourPane() {
-        return colourPane;
-    }
-
-    @FXML
-    private Pane row;
 
 
+
+
+        @FXML
+        private Label address;
+
+        @FXML
+        private JFXButton btnClear;
+
+        @FXML
+        private JFXButton btnEdit;
+
+        @FXML
+        private Pane colourPane;
+
+        @FXML
+        private Label email;
+
+        @FXML
+        private Label id;
+
+        @FXML
+        private Label mobile;
+
+        @FXML
+        private Label name;
+
+        @FXML
+        private Pane row;
     public Pane getRow() {
         return row;
     }
 
 
-    public void setAddress(String address) {
-        this.address.setText(address);
+
+    public void setBtnClear(JFXButton btnClear) {
+        this.btnClear = btnClear;
+    }
+
+    public void setBtnEdit(JFXButton btnEdit) {
+        this.btnEdit = btnEdit;
+    }
+
+    public void setColourPane(Pane colourPane) {
+        this.colourPane = colourPane;
     }
 
     public void setEmail(String email) {
@@ -58,33 +69,22 @@ public class SupplierRowFormController {
     public void setMobile(String mobile) {
         this.mobile.setText(mobile);
     }
-
+    public void setAddress(String address) {
+        this.address.setText(address);
+    }
     public void setName(String name) {
         this.name.setText(name);
     }
-    public JFXButton getClear(){
-        return this.btnClear;
+
+    public JFXButton getBtnClear() {
+        return btnClear;
     }
 
-    public void initialize(){
-//    ArrayList<EmployeeDto> allEmployees = new EmployeeModel().getAllEmployees();
-//
-//    for (int i = 0; i <allEmployees.size(); i++) {
-//
-//        id.setText(allEmployees.get(i).getId());
-//        name.setText(allEmployees.get(i).getName());
-//        address.setText(allEmployees.get(i).getAddress());
-//        mobile.setText(allEmployees.get(i).getMobile());
-//        email.setText(allEmployees.get(i).getEmail());
-//
-//
-//
-//    }
-
-}
-    @FXML
-    void btnClearOnAction(ActionEvent event) {
-        SupplierFormController.action(event);
+    public JFXButton getBtnEdit() {
+        return btnEdit;
     }
 
-}
+    public Pane getColourPane() {
+        return colourPane;
+    }
+    }

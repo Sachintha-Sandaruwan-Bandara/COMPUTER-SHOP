@@ -37,7 +37,8 @@ public class PopUpUpdateCustomerFormController {
 
 
         public void initialize(){
-           loadCustomerDetails(CustomerFormController.customerFormController.updateCustomerId);
+            this.customerFormController=CustomerFormController.customerFormController;
+           loadCustomerDetails(customerFormController.updateCustomerId);
 
         }
 

@@ -4,11 +4,11 @@
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Bloom?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -167,26 +167,25 @@
             </Pane>
                 <Pane fx:id="detail5" layoutX="626.0" layoutY="137.0" prefHeight="223.0" prefWidth="386.0" style="-fx-background-color: #a29bfe; -fx-background-radius: 10;">
                     <children>
-                        <Label layoutX="41.0" layoutY="37.0" prefHeight="48.0" prefWidth="91.0" text="890" textFill="WHITE">
+                        <Label layoutX="17.0" layoutY="16.0" prefHeight="48.0" prefWidth="243.0" text="ATTENDENCE" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="32.0" />
                             </font>
                         </Label>
-                        <ProgressBar layoutX="42.0" layoutY="166.0" prefHeight="18.0" prefWidth="91.0" progress="0.0" />
-                        <Label layoutX="43.0" layoutY="137.0" opacity="0.7" text="Finish" textFill="#b7b0b0">
-                            <font>
-                                <Font size="15.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="86.0" layoutY="138.0" text="100%" textFill="WHITE">
-                            <font>
-                                <Font size="13.0" />
-                            </font>
-                        </Label>
+                  <TextField fx:id="txtEmpID" layoutX="40.0" layoutY="67.0" prefHeight="25.0" prefWidth="139.0" promptText="EMP ID" />
+                  <DatePicker fx:id="datePicker" layoutX="231.0" layoutY="66.0" prefHeight="25.0" prefWidth="139.0" promptText="DATE" />
+                  <Label fx:id="attendenceTime" layoutX="92.0" layoutY="151.0" prefHeight="26.0" prefWidth="48.0" text="00:00">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <JFXButton fx:id="btnAssign" layoutX="275.0" layoutY="150.0" prefHeight="28.0" prefWidth="84.0" style="-fx-border-color: WHITE;" text="ASSIGNE" />
+                  <Label fx:id="lblTimeMini11" layoutX="27.0" layoutY="150.0" prefHeight="26.0" prefWidth="48.0" text="TIME">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
                     </children>
-               <effect>
-                  <DropShadow />
-               </effect>
                 </Pane>
                 <Pane fx:id="detail4" layoutX="482.0" layoutY="143.0" prefHeight="211.0" prefWidth="119.0" style="-fx-background-color: #74b9ff; -fx-background-radius: 10;">
                     <children>
@@ -201,9 +200,6 @@
                             </font>
                         </Label>
                     </children>
-               <effect>
-                  <DropShadow />
-               </effect>
                 </Pane>
                 <Pane fx:id="detail3" layoutX="332.0" layoutY="140.0" prefHeight="211.0" prefWidth="119.0" style="-fx-background-color: #81ecec; -fx-background-radius: 10;">
                     <children>
@@ -229,9 +225,6 @@
                             </font>
                         </Label>
                     </children>
-               <effect>
-                  <DropShadow />
-               </effect>
                 </Pane>
                 <Pane fx:id="detail2" layoutX="189.0" layoutY="140.0" prefHeight="211.0" prefWidth="119.0" style="-fx-background-color: #55efc4; -fx-border-radius: 10; -fx-background-radius: 10;">
                     <children>
@@ -257,9 +250,6 @@
                             </font>
                         </Label>
                     </children>
-               <effect>
-                  <DropShadow />
-               </effect>
                 </Pane>
                 <Pane fx:id="detail1" layoutX="49.0" layoutY="140.0" prefHeight="211.0" prefWidth="119.0" style="-fx-background-color: #fab1a0; -fx-background-radius: 10;">
                     <children>
@@ -285,9 +275,6 @@
                             </font>
                         </Label>
                     </children>
-               <effect>
-                  <DropShadow />
-               </effect>
                 </Pane>
                 <Label layoutX="113.0" layoutY="87.0" text="Find the best parts for your PC &amp; WorkStation" />
                 <Label layoutX="37.0" layoutY="53.0" text="WELCOME TO PC BUILDERS">
@@ -314,18 +301,9 @@
                             </image>
                         </ImageView>
                     </children>
-               <effect>
-                  <DropShadow />
-               </effect>
                 </Pane>
-                <JFXButton layoutX="886.0" layoutY="15.0" prefHeight="39.0" prefWidth="60.0" style="-fx-background-color: purple; -fx-background-radius: 0;" stylesheets="@../assets/css/style.css" text="Search" textFill="WHITE">
-               <effect>
-                  <DropShadow height="41.44" radius="13.649999999999999" width="15.16" />
-               </effect></JFXButton>
-                <TextField layoutX="694.0" layoutY="15.0" prefHeight="39.0" prefWidth="192.0" style="-fx-background-radius: 0; -fx-background-color: white; -fx-border-color: gray;">
-               <effect>
-                  <DropShadow />
-               </effect></TextField>
+                <JFXButton layoutX="886.0" layoutY="15.0" prefHeight="39.0" prefWidth="60.0" style="-fx-background-color: purple; -fx-background-radius: 0;" stylesheets="@../assets/css/style.css" text="Search" textFill="WHITE" />
+                <TextField layoutX="694.0" layoutY="15.0" prefHeight="39.0" prefWidth="192.0" style="-fx-background-radius: 0; -fx-background-color: white; -fx-border-color: gray;" />
                 <Pane layoutX="524.0" layoutY="384.0" prefHeight="211.0" prefWidth="485.0" style="-fx-background-color: white; -fx-border-radius: 10; -fx-background-radius: 10;">
                     <children>
                         <Label layoutX="36.0" layoutY="22.0" text="WELCOME TO PC BUILDERS">
@@ -345,9 +323,6 @@
                             </font>
                         </Label>
                     </children>
-               <effect>
-                  <DropShadow />
-               </effect>
                 </Pane>
                 <Pane layoutX="36.0" layoutY="461.0" prefHeight="57.0" prefWidth="357.0" style="-fx-background-color: white; -fx-border-radius: 10; -fx-background-radius: 10;">
                     <children>
@@ -368,9 +343,6 @@
                             </image>
                         </ImageView>
                     </children>
-               <effect>
-                  <DropShadow />
-               </effect>
                 </Pane>
                 <Pane layoutX="39.0" layoutY="537.0" prefHeight="57.0" prefWidth="357.0" style="-fx-background-color: white; -fx-border-radius: 10; -fx-background-radius: 10;">
                     <children>
@@ -391,9 +363,6 @@
                             </image>
                         </ImageView>
                     </children>
-               <effect>
-                  <DropShadow />
-               </effect>
                 </Pane>
                 <Label fx:id="lblTimeMini" layoutX="23.0" layoutY="10.0" prefHeight="26.0" prefWidth="74.0" text="00:00:00">
                     <font>

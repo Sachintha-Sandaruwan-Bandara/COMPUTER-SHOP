@@ -102,8 +102,18 @@ public class Navigation {
             case UPDATEEMPLOYEE:
                 initPopUp("popUpUpdateEmployeeForm");
                 break;
-            case    PLACEORDERSELECT:
+            case PLACEORDERSELECT:
                 initPopUp("placeOrderSelectForm");
+                break;
+
+            case ADDSUPPLIER:
+                initPopUp("popUpAddSupplierForm");
+                break;
+            case UPDATESUPPLIER:
+                initPopUp("popUpUpdateSupplierForm");
+                break;
+            case ADDITEM:
+                initPopUp("popUpAddItemForm");
                 break;
         }
 

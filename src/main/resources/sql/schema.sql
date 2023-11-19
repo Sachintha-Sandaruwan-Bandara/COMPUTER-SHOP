@@ -17,9 +17,9 @@ create table employee (
 create table attendence(
                            attendenceID varchar(30)primary key,
                            date Date,
-                           inTime Int(5),
-                           outTime Int(5),
-                           otHours Int(5),
+                           inTime double ,
+                           outTime double,
+                           otHours double,
                            empID varchar(30),
                            constraint foreign key (empID) references
                                employee(empID)on delete  cascade on update cascade
@@ -50,7 +50,7 @@ create table supplier(
                          name varchar(30),
                          address varchar(30),
                          email varchar(30),
-                         mobile Int(10)
+                         mobile varchar(10)
 );
 
 create table buyingOrder(
@@ -67,7 +67,8 @@ create table item(
                      name varchar(30),
                      buyingPrice Int(10),
                      sellingPrice Int(10),
-                     qty Int(10)
+                     qty Int(10),
+                     image LONGBLOB
 );
 
 create table buyingOrderDetails(

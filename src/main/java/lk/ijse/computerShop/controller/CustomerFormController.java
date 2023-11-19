@@ -19,7 +19,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import lk.ijse.computerShop.dto.CustomerDto;
-import lk.ijse.computerShop.dto.tm.CustomerTm;
+
 import lk.ijse.computerShop.model.CustomerModel;
 import lk.ijse.computerShop.navigation.Navigation;
 import lk.ijse.computerShop.navigation.Routes;
@@ -39,8 +39,7 @@ public class CustomerFormController {
     public JFXButton btnAddCustomer;
 
 
-    @FXML
-    public TableView<CustomerTm> tblCustomer;
+
     @FXML
     private Label lblAddress;
 
@@ -135,7 +134,7 @@ public class CustomerFormController {
             //each row has own customer id for row clicked Actions
             String id=allCustomers.get(i).getId();
             row.setId(id);
-
+            System.out.println(id);
             //set actions to row buttons
             btnClear.setOnAction(actionEvent -> {
                 System.out.println("cleard");

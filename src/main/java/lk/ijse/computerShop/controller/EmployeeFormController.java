@@ -5,31 +5,19 @@ package lk.ijse.computerShop.controller;
 */
 
 import com.jfoenix.controls.JFXButton;
-import javafx.beans.property.ReadOnlyObjectWrapper;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Cursor;
 import javafx.scene.Node;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-import lk.ijse.computerShop.dto.CustomerDto;
 import lk.ijse.computerShop.dto.EmployeeDto;
-import lk.ijse.computerShop.dto.tm.CustomerTm;
-import lk.ijse.computerShop.dto.tm.EmployeeTm;
-import lk.ijse.computerShop.model.CustomerModel;
 import lk.ijse.computerShop.model.EmployeeModel;
 import lk.ijse.computerShop.navigation.Navigation;
 import lk.ijse.computerShop.navigation.Routes;
@@ -68,7 +56,7 @@ public class EmployeeFormController {
     @FXML
     private VBox vBox;
     @FXML
-    public TableView<EmployeeTm> tblEmployee;
+
 
     public static EmployeeFormController employeeFormController;
 
@@ -124,7 +112,7 @@ public class EmployeeFormController {
             //each row has own customer id for row clicked Actions
             String id=allEmployees.get(i).getId();
             row.setId(id);
-
+            System.out.println(id);
             //set actions to row buttons
             btnClear.setOnAction(actionEvent -> {
                 System.out.println("cleard");
@@ -136,6 +124,7 @@ public class EmployeeFormController {
             btnEdit.setOnAction(actionEvent -> {
                 try {
                     updateEmployeeId=id;
+                    System.out.println(id);
                     Navigation.navigatePopUpWindow(Routes.UPDATEEMPLOYEE);
                 } catch (IOException e) {
                     throw new RuntimeException(e);

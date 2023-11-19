@@ -23,8 +23,14 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import lk.ijse.computerShop.dto.CustomerDto;
 import lk.ijse.computerShop.dto.EmployeeDto;
+import lk.ijse.computerShop.dto.SupplierDto;
+import lk.ijse.computerShop.model.CustomerModel;
 import lk.ijse.computerShop.model.EmployeeModel;
+import lk.ijse.computerShop.model.SupplierModel;
+import lk.ijse.computerShop.navigation.Navigation;
+import lk.ijse.computerShop.navigation.Routes;
 import org.w3c.dom.ls.LSOutput;
 
 import java.io.IOException;
@@ -52,107 +58,110 @@ public class SupplierFormController {
 
     @FXML
     private TextField searchTxt;
+    public String updateSupplierId;
 
+    public static SupplierFormController supplierFormController;
     ArrayList<Object> rows = new ArrayList<>();
     public void initialize() throws IOException {
-        loadc();
+        supplierFormController=this;
+        loadAllSuppliers();
          scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 
     }
 
-    private void loadc() throws IOException {
+    public void loadAllSuppliers() throws IOException {
 
-        ArrayList<EmployeeDto> allEmployees = new EmployeeModel().getAllEmployees();
-        for (int i = 0; i <allEmployees.size(); i++) {
-
-        VBox vb = new VBox(); // Create a new VBox to hold the records
-        vb.setSpacing(20);
-
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/supplierRowForm.fxml"));
-        SupplierRowFormController supplierRowFormController = new SupplierRowFormController();
-        fxmlLoader.setController(supplierRowFormController);
-        Node node = fxmlLoader.load();
-        VBox.setMargin(node, new Insets(5, 5, 5, 5));
+        //refresh view(clear old records before added new records)
+        vBox.getChildren().clear();
 
 
-        String id=allEmployees.get(i).getId();
-       supplierRowFormController.setId(allEmployees.get(i).getId());
-       supplierRowFormController.setName(allEmployees.get(i).getName());
-       supplierRowFormController.setAddress(allEmployees.get(i).getAddress());
-       supplierRowFormController.setMobile(allEmployees.get(i).getMobile());
-       supplierRowFormController.setEmail (allEmployees.get(i).getEmail());
-            JFXButton clear = supplierRowFormController.getClear();
+        ArrayList<SupplierDto> allSuppliers = new SupplierModel().getAllSuppliers();
+
+        // get dto details to raws
+        for (int i = 0; i < allSuppliers.size(); i++) {
+
+            //create new v box to hold records
+            VBox vBox1 = new VBox();
+            vBox1.setSpacing(20);
+
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/supplierRowForm.fxml"));
+            //create row controller
+            SupplierRowFormController supplierRowFormController = new SupplierRowFormController();
+            //controller set to fxml
+            fxmlLoader.setController(supplierRowFormController);
+
+            Node node = fxmlLoader.load();
+
+            //set values to rows
+            supplierRowFormController.setId(allSuppliers.get(i).getId());
+            supplierRowFormController.setName(allSuppliers.get(i).getName());
+            supplierRowFormController.setAddress(allSuppliers.get(i).getAddress());
+            supplierRowFormController.setEmail(allSuppliers.get(i).getEmail());
+            supplierRowFormController.setMobile(allSuppliers.get(i).getMobile());
+
+            //get row buttons for set action
+            JFXButton btnClear = supplierRowFormController.getBtnClear();
+            JFXButton btnEdit = supplierRowFormController.getBtnEdit();
+
+            //get Rows for set styles
             Pane row = supplierRowFormController.getRow();
             Pane colourPane = supplierRowFormController.getColourPane();
+
+            //each row has own customer id for row clicked Actions
+            String id=allSuppliers.get(i).getId();
             row.setId(id);
+            System.out.println(row.getId());
 
-            rows.add(row);
-
-            clear.setOnAction(actionEvent -> {
+            //set actions to row buttons
+            btnClear.setOnAction(actionEvent -> {
                 System.out.println("cleard");
-                new EmployeeModel().deleteEmployee(id);
-            vb.getChildren().clear();
+
+                boolean isDeleted= new SupplierModel().deleteSupplier(id);
+                vBox1.getChildren().clear();
+                if (isDeleted){
+                    System.out.println("supplier deleted successfully!!");
+                }else {
+                    System.out.println("something went wrong!!");
+                }
             });
-            row.setOnMouseClicked(mouseEvent -> {
-                colourPane.setStyle("-fx-background-color: white;-fx-border-radius: 20;-fx-background-radius: 20;");
 
-                System.out.println(row.getId());
+            btnEdit.setOnAction(actionEvent -> {
 
-                EmployeeDto employee = new EmployeeModel().getEmployee(row.getId());
-
-                lblId.setText(employee.getId());
-                lblName.setText(employee.getName());
-                lblAddress.setText(employee.getAddress());
-                lblEmail.setText(employee.getEmail());
-                lblMobile.setText(employee.getMobile());
-
-            });
-            row.setOnMouseEntered(mouseEvent -> {
-               colourPane.setStyle("-fx-background-color: rgba(0,0,0,0.23);-fx-border-radius: 20;-fx-background-radius: 20;");
+                    updateSupplierId=id;
 
 
-            });
-            row.setOnMouseExited(mouseEvent -> {
-                colourPane.setStyle("-fx-background-color:white;-fx-border-radius: 20;-fx-background-radius: 20;");
-
-
+                System.out.println("edit clicked");
+                try {
+                    Navigation.navigatePopUpWindow(Routes.UPDATESUPPLIER);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
 
             });
 
+            vBox1.getChildren().clear();
+            vBox1.getChildren().add(node);
+            vBox.getChildren().add(vBox1);
 
+            colourPane.setOnMouseEntered(mouseEvent -> {
+                colourPane.setStyle("-fx-border-color: #16a085;-fx-border-radius: 20;-fx-background-color: rgba(22,160,133,0.18);-fx-background-radius: 20;");
+            });
+            colourPane.setOnMouseClicked(mouseEvent -> {
+                colourPane.setStyle("-fx-border-color: #16a085;-fx-border-radius: 20;-fx-background-color: rgba(22,160,133,0.18);-fx-background-radius: 20;");
 
+            });
+            colourPane.setOnMouseExited(mouseEvent -> {
+                colourPane.setStyle("");
+            });
 
-
-            vb.getChildren().add(node);
-            vBox.getChildren().add(vb);
-    }
-
-        searchTxt.setOnKeyReleased(keyEvent -> {
-            EmployeeDto employee = new EmployeeModel().getEmployee(searchTxt.getText());
-
-            lblId.setText(employee.getId());
-            lblName.setText(employee.getName());
-            lblAddress.setText(employee.getAddress());
-            lblEmail.setText(employee.getEmail());
-            lblMobile.setText(employee.getMobile());
-        });
-
+        }
 
     }
 
     @FXML
     void addSupplierOnAction(ActionEvent event) throws IOException {
-
-
-        VBox vb = new VBox(); // Create a new VBox to hold the records
-        vb.setSpacing(20);
-
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/supplierRowForm.fxml"));
-        Node node = fxmlLoader.load();
-        VBox.setMargin(node, new Insets(5, 5, 5, 5));
-        vb.getChildren().add(node);
-        vBox.getChildren().add(vb);
+        Navigation.navigatePopUpWindow(Routes.ADDSUPPLIER);
 
 
     }

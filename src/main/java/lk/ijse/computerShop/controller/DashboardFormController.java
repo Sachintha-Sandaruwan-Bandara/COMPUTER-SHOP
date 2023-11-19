@@ -4,6 +4,7 @@ package lk.ijse.computerShop.controller;
     @created 11/3/2023 - 7:40 PM 
 */
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXToggleButton;
 import javafx.animation.Animation;
@@ -13,19 +14,34 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
+import lk.ijse.computerShop.dto.AttendenceDto;
+import lk.ijse.computerShop.model.AttendenceModel;
 import lk.ijse.computerShop.navigation.Navigation;
 import lk.ijse.computerShop.navigation.Routes;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class DashboardFormController {
+
+    @FXML
+    private TextField txtEmpID;
+    @FXML
+    private Label attendenceTime;
+    @FXML
+    private DatePicker datePicker;
+    @FXML
+    private JFXButton btnAssign;
+
     @FXML
     private JFXToggleButton darkMode;
     @FXML
@@ -61,13 +77,68 @@ public class DashboardFormController {
     private AnchorPane subAnchorPane;
 
     public void initialize() {
-
+        attendence();
         generateRealTime();
         ObservableList<String> options = FXCollections.observableArrayList(
                 "SELLING ORDER",
                 "BUYING ORDER"
         );
         orderComb.setItems(options);
+
+    }
+
+    private void attendence() {
+
+        txtEmpID.setOnKeyReleased(keyEvent-> {
+            String s = new AttendenceModel().checkIsLeaved(txtEmpID.getText(), Date.valueOf(datePicker.getValue()));
+            System.out.println(s);
+            if (s.equals("0.0")){
+                System.out.println("bla bla");
+                btnAssign.setText("sign out");
+                btnAssign.setVisible(true);
+                btnAssign.setOnAction(actionEvent1 -> {
+                    boolean isUpdated= new AttendenceModel().updateOutTime(txtEmpID.getText(), Date.valueOf(datePicker.getValue()), Double.valueOf(attendenceTime.getText()));
+
+                    if (isUpdated){
+                        System.out.println("updated out time");
+                        btnAssign.setVisible(false);
+                        txtEmpID.clear();
+                    }else {
+                        System.out.println("not updated out time");
+                        btnAssign.setVisible(true);
+                    }
+                });
+            }
+        });
+
+
+txtEmpID.setOnAction(Event -> {
+//new AttendenceModel().checkIsAdmited(txtEmpID.getText(),Date.valueOf(datePicker.getValue()));
+    btnAssign.setOnAction(actionEvent -> {
+    String id = new AttendenceModel().genarateId();
+    AttendenceDto attendenceDto = new AttendenceDto(
+            id,
+            Date.valueOf(datePicker.getValue()),
+            Double.valueOf(attendenceTime.getText()),
+            0,
+            0,
+            txtEmpID.getText()
+
+    );
+
+    boolean isSaved= new AttendenceModel().saveAttendence(attendenceDto);
+
+    if (isSaved){
+        System.out.println("attendance saved!!");
+
+    }else {
+        System.out.println("attendance not saved!!");
+    }
+
+});
+
+});
+
     }
 
     @FXML
@@ -133,11 +204,14 @@ public class DashboardFormController {
 
     /*-----DATE AND TIME GENERATE------*/
     private void generateRealTime() {
+        datePicker.setValue(LocalDate.now());
         lblDate.setText(LocalDate.now().toString());
         Timeline timeline = new Timeline(new KeyFrame(javafx.util.Duration.ZERO, e -> {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm:ss");
+            DateTimeFormatter formatter1=DateTimeFormatter.ofPattern("hh.mm");
             lblTimeMini.setText(LocalDateTime.now().format(formatter));
             lblTime.setText(LocalDateTime.now().format(formatter));
+            attendenceTime.setText(LocalDateTime.now().format(formatter1));
         }), new KeyFrame(Duration.seconds(1)));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
