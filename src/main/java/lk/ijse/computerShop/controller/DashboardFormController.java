@@ -89,53 +89,67 @@ public class DashboardFormController {
 
     private void attendence() {
 
-        txtEmpID.setOnKeyReleased(keyEvent-> {
-            String s = new AttendenceModel().checkIsLeaved(txtEmpID.getText(), Date.valueOf(datePicker.getValue()));
-            System.out.println(s);
-            if (s.equals("0.0")){
-                System.out.println("bla bla");
-                btnAssign.setText("sign out");
-                btnAssign.setVisible(true);
+
+
+txtEmpID.setOnAction(Event -> {
+    boolean b = new AttendenceModel().checkIsAdmited(txtEmpID.getText(), Date.valueOf(datePicker.getValue()));
+
+    if (b){
+
+        btnAssign.setText("sign out");
+        btnAssign.setVisible(true);
                 btnAssign.setOnAction(actionEvent1 -> {
                     boolean isUpdated= new AttendenceModel().updateOutTime(txtEmpID.getText(), Date.valueOf(datePicker.getValue()), Double.valueOf(attendenceTime.getText()));
 
                     if (isUpdated){
                         System.out.println("updated out time");
                         btnAssign.setVisible(false);
+                        try {
+                            AttendanceFormController.attendanceFormController.loadAllAttendence();
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
                         txtEmpID.clear();
                     }else {
-                        System.out.println("not updated out time");
-                        btnAssign.setVisible(true);
+                        System.out.println("not updatbtnAssign.setVisible(true);ed out time");
+
                     }
                 });
-            }
-        });
-
-
-txtEmpID.setOnAction(Event -> {
-//new AttendenceModel().checkIsAdmited(txtEmpID.getText(),Date.valueOf(datePicker.getValue()));
-    btnAssign.setOnAction(actionEvent -> {
-    String id = new AttendenceModel().genarateId();
-    AttendenceDto attendenceDto = new AttendenceDto(
-            id,
-            Date.valueOf(datePicker.getValue()),
-            Double.valueOf(attendenceTime.getText()),
-            0,
-            0,
-            txtEmpID.getText()
-
-    );
-
-    boolean isSaved= new AttendenceModel().saveAttendence(attendenceDto);
-
-    if (isSaved){
-        System.out.println("attendance saved!!");
 
     }else {
-        System.out.println("attendance not saved!!");
+        btnAssign.setText("admit");
+        btnAssign.setVisible(true);
+        btnAssign.setOnAction(actionEvent -> {
+            String id = new AttendenceModel().genarateId();
+            AttendenceDto attendenceDto = new AttendenceDto(
+                    id,
+                    Date.valueOf(datePicker.getValue()),
+                    Double.valueOf(attendenceTime.getText()),
+                    0,
+                    0,
+                    txtEmpID.getText()
+
+            );
+
+            boolean isSaved= new AttendenceModel().saveAttendence(attendenceDto);
+
+            if (isSaved){
+                System.out.println("attendance saved!!");
+                btnAssign.setVisible(false);
+
+                try {
+                    AttendanceFormController.attendanceFormController.loadAllAttendence();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+            }else {
+                System.out.println("attendance not saved!!");
+            }
+
+        });
     }
 
-});
 
 });
 

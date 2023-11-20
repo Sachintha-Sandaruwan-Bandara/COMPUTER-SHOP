@@ -8,6 +8,7 @@ import lk.ijse.computerShop.db.DbConnection;
 import lk.ijse.computerShop.dto.AttendenceDto;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class AttendenceModel {
     public boolean saveAttendence(AttendenceDto attendenceDto) {
@@ -101,21 +102,54 @@ public class AttendenceModel {
 
     }
 
-//    public void checkIsAdmited(String text, Date valueOf) {
-//        try {
-//            Connection connection = DbConnection.getInstance().getConnection();
-//            String sql="select empID from attendence where date =?";
-//            PreparedStatement pstm = connection.prepareStatement(sql);
-//            pstm.setObject(1,valueOf);
-//            ResultSet resultSet = pstm.executeQuery();
-//
-//            if (resultSet.next()){
-//                System.out.println(resultSet.getString(1) );;
-//            }
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//
-//    }
+    public ArrayList<AttendenceDto> getAllAttendence() {
+        try {
+            Connection connection = DbConnection.getInstance().getConnection();
+            String sql="select * from attendence";
+            PreparedStatement pstm = connection.prepareStatement(sql);
+            ResultSet resultSet = pstm.executeQuery();
+
+            ArrayList<AttendenceDto> attendenceList = new ArrayList<>();
+            while (resultSet.next()){
+                AttendenceDto attendenceDto = new AttendenceDto(
+                        resultSet.getString(1),
+                        resultSet.getDate(2),
+                        resultSet.getDouble(3),
+                        resultSet.getDouble(4),
+                        resultSet.getDouble(5),
+                        resultSet.getString(6)
+
+                );
+                attendenceList.add(attendenceDto);
+
+            }
+            return attendenceList;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public boolean checkIsAdmited(String text, Date valueOf) {
+        try {
+            Connection connection = DbConnection.getInstance().getConnection();
+            String sql="select empID from attendence where date =? && empID=?";
+            PreparedStatement pstm = connection.prepareStatement(sql);
+            pstm.setObject(1,valueOf);
+            pstm.setObject(2,text);
+
+            ResultSet resultSet = pstm.executeQuery();
+
+            if (resultSet.next()){
+              return true;
+            }else {
+                return false;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 }
 
