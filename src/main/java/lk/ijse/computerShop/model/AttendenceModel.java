@@ -8,6 +8,9 @@ import lk.ijse.computerShop.db.DbConnection;
 import lk.ijse.computerShop.dto.AttendenceDto;
 
 import java.sql.*;
+import java.time.Duration;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class AttendenceModel {
@@ -21,7 +24,7 @@ public class AttendenceModel {
             pstm.setObject(2,attendenceDto.getDate());
             pstm.setObject(3,attendenceDto.getInTime());
             pstm.setObject(4,attendenceDto.getOutTime());
-            pstm.setObject(5,attendenceDto.getOtHours());
+            pstm.setObject(5,attendenceDto.getWorkingHours());
             pstm.setObject(6,attendenceDto.getEmpID());
 
             boolean b = pstm.executeUpdate() > 0;
@@ -62,30 +65,10 @@ public class AttendenceModel {
         return "c001";
     }
 
-    public String checkIsLeaved(String text, Date valueOf) {
-        try {
-            Connection connection = DbConnection.getInstance().getConnection();
-            String sql=" SELECT OUTTIME FROM ATTENDENCE WHERE EMPID=?&& DATE=?";
-            PreparedStatement pstm = connection.prepareStatement(sql);
-            pstm.setObject(1,text);
-            pstm.setObject(2,valueOf);
-
-            ResultSet resultSet = pstm.executeQuery();
-            String check=null;
-            if (resultSet.next()){
-                 check = resultSet.getString(1);
-
-            }
-            return check;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
 
 
-    }
 
-
-    public boolean updateOutTime(String text, Date valueOf, Double valueOf1) {
+    public boolean updateOutTime(String text, Date valueOf, Time valueOf1) {
         try {
             Connection connection = DbConnection.getInstance().getConnection();
             String sql="update ATTENDENCE set outTime=? where EMPID=?&& DATE=?";
@@ -114,9 +97,9 @@ public class AttendenceModel {
                 AttendenceDto attendenceDto = new AttendenceDto(
                         resultSet.getString(1),
                         resultSet.getDate(2),
-                        resultSet.getDouble(3),
-                        resultSet.getDouble(4),
-                        resultSet.getDouble(5),
+                        resultSet.getTime(3),
+                        resultSet.getTime(4),
+                        resultSet.getInt(5),
                         resultSet.getString(6)
 
                 );
@@ -151,5 +134,75 @@ public class AttendenceModel {
         }
 
     }
+
+    public void setWorkingHours(String empId, Date date) {
+        String timeIn=null;
+        String  timeOut=null;
+        Connection connection = null;
+        try {
+            connection = DbConnection.getInstance().getConnection();
+            String query = "SELECT inTime, outTime FROM attendence WHERE date = ? && empID = ?";
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setString(1, String.valueOf(date));
+            statement.setString(2, empId);
+
+            try (
+                    ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    timeIn = resultSet.getString("inTime");
+                    timeOut = resultSet.getString("outTime");
+
+                    System.out.println("Time In: " + timeIn + ", Time Out: " + timeOut);
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        calculate(timeIn,timeOut,empId,date);
+
+    }
+
+    private void calculate(String timeIn, String timeOut, String empId, Date date) {
+
+        System.out.println("awaa mn aawaaaaa");
+        try {
+            String oldTimeText = timeIn;
+            String newTimeText = timeOut;
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+
+            // Parse time strings to LocalTime
+            LocalTime oldTime = LocalTime.parse(oldTimeText, formatter);
+            LocalTime newTime = LocalTime.parse(newTimeText, formatter);
+
+            // Calculate time difference
+            Duration duration = Duration.between(oldTime, newTime);
+            long hours = duration.toHours();
+
+            int working= (int) hours;
+
+            Connection connection = DbConnection.getInstance().getConnection();
+            String sql="update attendence set workingHours=? where empID=? && date=?";
+            PreparedStatement pstm = connection.prepareStatement(sql);
+            pstm.setObject(1,working);
+            pstm.setObject(2,empId);
+            pstm.setObject(3,date);
+
+            boolean b = pstm.executeUpdate() > 0;
+
+            if (b){
+                System.out.println("working hours added");
+            }else{
+                System.out.println("working hours not added");
+            }
+
+
+            System.out.println("Time Difference: " + hours + " hours");
+        } catch (Exception e) {
+
+        }
+    }
+
 }
 

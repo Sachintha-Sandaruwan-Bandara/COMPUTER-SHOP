@@ -17,9 +17,9 @@ create table employee (
 create table attendence(
                            attendenceID varchar(30)primary key,
                            date Date,
-                           inTime double ,
-                           outTime double,
-                           otHours double,
+                           inTime time ,
+                           outTime time,
+                           workingHours int,
                            empID varchar(30),
                            constraint foreign key (empID) references
                                employee(empID)on delete  cascade on update cascade

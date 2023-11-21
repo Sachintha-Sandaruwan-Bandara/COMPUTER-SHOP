@@ -19,7 +19,7 @@
       </TableView>
       <Pane layoutX="687.0" layoutY="12.0" prefHeight="630.0" prefWidth="329.0" style="-fx-background-color: gray;">
          <children>
-            <JFXButton layoutX="112.0" layoutY="554.0" prefHeight="43.0" prefWidth="106.0" style="-fx-background-color: black;" text="pay" textFill="WHITE">
+            <JFXButton layoutX="112.0" layoutY="554.0" onAction="#btnPayOnAction" prefHeight="43.0" prefWidth="106.0" style="-fx-background-color: black;" text="pay" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -27,31 +27,51 @@
             <Pane layoutX="23.0" layoutY="26.0" prefHeight="347.0" prefWidth="284.0" style="-fx-background-color: white;">
                <children>
                   <ComboBox layoutX="10.0" layoutY="41.0" prefHeight="25.0" prefWidth="121.0" promptText="EMPLOYEE ID" />
-                  <TextField layoutX="131.0" layoutY="41.0" prefHeight="25.0" prefWidth="139.0" />
-                  <Label layoutX="10.0" layoutY="93.0" text="WORKING HOURS">
+                  <TextField fx:id="txtEmployeeId" layoutX="131.0" layoutY="41.0" prefHeight="25.0" prefWidth="139.0" />
+                  <Label layoutX="10.0" layoutY="93.0" text="WORKING HOURS :">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="13.0" layoutY="123.0" text="OT HOURS">
+                  <Label layoutX="13.0" layoutY="123.0" text="OT HOURS             :">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="24.0" layoutY="274.0" text="TOTAL">
+                  <Label layoutX="24.0" layoutY="274.0" text="TOTAL    :">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Label>
-                  <Label layoutX="13.0" layoutY="5.0" text="DATE">
+                  <Label layoutX="13.0" layoutY="5.0" text="DATE      :">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblWorkingHours" layoutX="143.0" layoutY="93.0">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblOtHours" layoutX="143.0" layoutY="123.0">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblTotal" layoutX="140.0" layoutY="274.0">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblDate" layoutX="81.0" layoutY="6.0">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <TextField layoutX="25.0" layoutY="457.0" prefHeight="43.0" prefWidth="284.0" promptText="OT HOUR" />
-            <TextField layoutX="25.0" layoutY="405.0" prefHeight="43.0" prefWidth="284.0" promptText="PER HOUR" />
+            <TextField fx:id="txtMoneyPerOtHour" layoutX="25.0" layoutY="457.0" prefHeight="43.0" prefWidth="284.0" promptText="OT HOUR" />
+            <TextField fx:id="txtMoneyPerHOur" layoutX="25.0" layoutY="405.0" prefHeight="43.0" prefWidth="284.0" promptText="PER HOUR" />
          </children>
       </Pane>
    </children>

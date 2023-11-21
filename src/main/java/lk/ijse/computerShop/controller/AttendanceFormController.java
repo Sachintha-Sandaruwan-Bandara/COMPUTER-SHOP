@@ -54,7 +54,7 @@ public class AttendanceFormController {
             attendenceRowFormController.setInTime(String.valueOf(allAttendence.get(i).getInTime()));
             attendenceRowFormController.setOutTime(String.valueOf(allAttendence.get(i).getOutTime()));
             attendenceRowFormController.setDate(String.valueOf(allAttendence.get(i).getDate()));
-            attendenceRowFormController.setOtHours(String.valueOf(allAttendence.get(i).getOtHours()));
+            attendenceRowFormController.setOtHours(String.valueOf(allAttendence.get(i).getWorkingHours()));
 
             //get row buttons for set action
             JFXButton btnClear = attendenceRowFormController.getBtnClear();

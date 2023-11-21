@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Date;
+import java.sql.Time;
 
 /*
     @author Sachi_S_Bandara
@@ -16,9 +17,9 @@ import java.sql.Date;
 public class AttendenceDto {
    private String attendenceID;
    private Date date ;
-   private double inTime;
-  private double outTime;
-  private double  otHours ;
+   private Time inTime;
+  private Time outTime;
+  private int  workingHours ;
    private String empID ;
 
 }

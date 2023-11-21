@@ -27,8 +27,10 @@ import lk.ijse.computerShop.navigation.Routes;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class DashboardFormController {
@@ -99,11 +101,12 @@ txtEmpID.setOnAction(Event -> {
         btnAssign.setText("sign out");
         btnAssign.setVisible(true);
                 btnAssign.setOnAction(actionEvent1 -> {
-                    boolean isUpdated= new AttendenceModel().updateOutTime(txtEmpID.getText(), Date.valueOf(datePicker.getValue()), Double.valueOf(attendenceTime.getText()));
+                    boolean isUpdated= new AttendenceModel().updateOutTime(txtEmpID.getText(), Date.valueOf(datePicker.getValue()), Time.valueOf(attendenceTime.getText()));
 
                     if (isUpdated){
                         System.out.println("updated out time");
                         btnAssign.setVisible(false);
+                        new AttendenceModel().setWorkingHours(txtEmpID.getText(), Date.valueOf(datePicker.getValue()));
                         try {
                             AttendanceFormController.attendanceFormController.loadAllAttendence();
                         } catch (IOException e) {
@@ -111,7 +114,9 @@ txtEmpID.setOnAction(Event -> {
                         }
                         txtEmpID.clear();
                     }else {
-                        System.out.println("not updatbtnAssign.setVisible(true);ed out time");
+                        System.out.println("not updated out time");
+
+
 
                     }
                 });
@@ -124,8 +129,8 @@ txtEmpID.setOnAction(Event -> {
             AttendenceDto attendenceDto = new AttendenceDto(
                     id,
                     Date.valueOf(datePicker.getValue()),
-                    Double.valueOf(attendenceTime.getText()),
-                    0,
+                     Time.valueOf(attendenceTime.getText()),
+                    Time.valueOf("00:00:00"),
                     0,
                     txtEmpID.getText()
 
@@ -222,7 +227,7 @@ txtEmpID.setOnAction(Event -> {
         lblDate.setText(LocalDate.now().toString());
         Timeline timeline = new Timeline(new KeyFrame(javafx.util.Duration.ZERO, e -> {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm:ss");
-            DateTimeFormatter formatter1=DateTimeFormatter.ofPattern("hh.mm");
+            DateTimeFormatter formatter1=DateTimeFormatter.ofPattern("hh:mm:ss");
             lblTimeMini.setText(LocalDateTime.now().format(formatter));
             lblTime.setText(LocalDateTime.now().format(formatter));
             attendenceTime.setText(LocalDateTime.now().format(formatter1));
