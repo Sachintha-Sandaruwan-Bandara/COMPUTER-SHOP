@@ -174,7 +174,7 @@
                         </Label>
                   <TextField fx:id="txtEmpID" layoutX="40.0" layoutY="67.0" prefHeight="25.0" prefWidth="139.0" promptText="EMP ID" />
                   <DatePicker fx:id="datePicker" layoutX="231.0" layoutY="66.0" prefHeight="25.0" prefWidth="139.0" promptText="DATE" />
-                  <Label fx:id="attendenceTime" layoutX="92.0" layoutY="151.0" prefHeight="26.0" prefWidth="48.0" text="00:00">
+                  <Label fx:id="attendenceTime" layoutX="92.0" layoutY="151.0" prefHeight="26.0" prefWidth="60.0" text="00:00">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -284,7 +284,7 @@
                 </Label>
                 <Pane layoutX="36.0" layoutY="381.0" prefHeight="57.0" prefWidth="357.0" style="-fx-background-color: white; -fx-border-radius: 10; -fx-background-radius: 10;">
                     <children>
-                        <Label layoutX="76.0" layoutY="5.0" prefHeight="26.0" prefWidth="110.0" text="AIR PLANE">
+                        <Label layoutX="76.0" layoutY="5.0" prefHeight="26.0" prefWidth="110.0" text="PLACE ORDER">
                             <font>
                                 <Font name="System Bold" size="16.0" />
                             </font>
@@ -300,6 +300,7 @@
                                 <Image url="@../assets/icons8-menu-vertical-50.png" />
                             </image>
                         </ImageView>
+                  <JFXButton onAction="#btnDashBoardPlaceOrderOnAction" prefHeight="57.0" prefWidth="357.0" text=" " />
                     </children>
                 </Pane>
                 <JFXButton layoutX="886.0" layoutY="15.0" prefHeight="39.0" prefWidth="60.0" style="-fx-background-color: purple; -fx-background-radius: 0;" stylesheets="@../assets/css/style.css" text="Search" textFill="WHITE" />

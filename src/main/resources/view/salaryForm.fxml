@@ -3,8 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
@@ -12,16 +11,11 @@
 
 <AnchorPane prefHeight="677.0" prefWidth="1037.0" style="-fx-background-color: A29BFE38;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computerShop.controller.SalaryFormController">
    <children>
-      <TableView layoutX="21.0" layoutY="285.0" prefHeight="357.0" prefWidth="650.0">
-        <columns>
-          <TableColumn prefWidth="139.9999942779541" text="C1" />
-        </columns>
-      </TableView>
-      <Pane layoutX="687.0" layoutY="12.0" prefHeight="630.0" prefWidth="329.0" style="-fx-background-color: gray;">
+      <Pane layoutX="693.0" layoutY="11.0" prefHeight="651.0" prefWidth="329.0" style="-fx-background-color: #16a085;">
          <children>
-            <JFXButton layoutX="112.0" layoutY="554.0" onAction="#btnPayOnAction" prefHeight="43.0" prefWidth="106.0" style="-fx-background-color: black;" text="pay" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="112.0" layoutY="559.0" onAction="#btnPayOnAction" prefHeight="43.0" prefWidth="106.0" style="-fx-background-color: black;" text="PAY" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </JFXButton>
             <Pane layoutX="23.0" layoutY="26.0" prefHeight="347.0" prefWidth="284.0" style="-fx-background-color: white;">
@@ -74,6 +68,7 @@
             <TextField fx:id="txtMoneyPerHOur" layoutX="25.0" layoutY="405.0" prefHeight="43.0" prefWidth="284.0" promptText="PER HOUR" />
          </children>
       </Pane>
+      <ScrollPane layoutX="14.0" layoutY="10.0" prefHeight="651.0" prefWidth="661.0" />
    </children>
 
 </AnchorPane>

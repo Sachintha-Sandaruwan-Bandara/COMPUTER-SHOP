@@ -78,13 +78,13 @@
             <ImageView fx:id="imgView" fitHeight="184.0" fitWidth="212.0" layoutX="16.0" layoutY="64.0" pickOnBounds="true" />
          </children>
       </Pane>
-      <JFXButton fx:id="btnAddEmployee" layoutX="893.0" layoutY="258.0" onAction="#btnAddEmployeeOnAction" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: BLACK;" text="ADD EMPLOYEE" textFill="WHITE">
+      <JFXButton fx:id="btnAddEmployee" layoutX="888.0" layoutY="238.0" onAction="#btnAddEmployeeOnAction" prefHeight="47.0" prefWidth="133.0" style="-fx-background-color: #16a085;" text="ADD EMPLOYEE" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="14.0" />
          </font></JFXButton>
-      <ScrollPane layoutX="13.0" layoutY="391.0" prefHeight="284.0" prefWidth="1012.0">
+      <ScrollPane layoutX="13.0" layoutY="325.0" prefHeight="348.0" prefWidth="1012.0">
          <content>
-            <AnchorPane prefHeight="277.0" prefWidth="973.0">
+            <AnchorPane prefHeight="289.0" prefWidth="973.0">
                <children>
                   <VBox fx:id="vBox" layoutX="4.0" layoutY="2.0" prefHeight="75.0" prefWidth="964.0" />
                </children>

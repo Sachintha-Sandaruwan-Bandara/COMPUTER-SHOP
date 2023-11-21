@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="677.0" prefWidth="1037.0" style="-fx-background-color: A29BFE38;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computerShop.controller.ItemFormController">
    <children>
-      <JFXButton layoutX="901.0" layoutY="48.0" onAction="#btnAddItemOnAction" prefHeight="48.0" prefWidth="113.0" style="-fx-background-color: BLACK;" text="ADD ITEM" textFill="WHITE">
+      <JFXButton layoutX="901.0" layoutY="48.0" onAction="#btnAddItemOnAction" prefHeight="48.0" prefWidth="113.0" style="-fx-background-color: #16a085;" text="ADD ITEM" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

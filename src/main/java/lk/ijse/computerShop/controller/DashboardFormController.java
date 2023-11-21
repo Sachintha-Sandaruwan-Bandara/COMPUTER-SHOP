@@ -288,6 +288,10 @@ txtEmpID.setOnAction(Event -> {
             }
         });
     }
+    @FXML
+    void btnDashBoardPlaceOrderOnAction(ActionEvent event) throws IOException {
+        Navigation.navigate(Routes.SELLINGORDER, subAnchorPane);
+    }
 
 }
 
