@@ -163,6 +163,11 @@
             <Pane fx:id="bgclrPane" layoutX="-1.0" layoutY="-3.0" prefHeight="677.0" prefWidth="1037.0">
                <children>
                   <JFXToggleButton fx:id="darkMode" layoutX="951.0" layoutY="8.0" prefHeight="40.0" prefWidth="73.0" text=" " />
+                  <JFXButton fx:id="btnNotification" layoutX="605.0" layoutY="17.0" prefHeight="40.0" prefWidth="74.0" ripplerFill="#a19898" style="-fx-background-color: white;" text=" ">
+                     <graphic>
+                        <ImageView fx:id="notifyIcon" fitHeight="33.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </JFXButton>
                </children>
             </Pane>
                 <Pane fx:id="detail5" layoutX="626.0" layoutY="137.0" prefHeight="223.0" prefWidth="386.0" style="-fx-background-color: #a29bfe; -fx-background-radius: 10;">

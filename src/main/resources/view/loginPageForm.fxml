@@ -3,6 +3,8 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
@@ -11,6 +13,11 @@
 
 <AnchorPane fx:id="loginPageAnchorPane" prefHeight="670.0" prefWidth="1250.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computerShop.controller.LoginPageFormController">
     <children>
+      <ImageView fx:id="imgLogo" fitHeight="526.0" fitWidth="894.0" layoutX="12.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/wp8450468.jpg" />
+         </image>
+      </ImageView>
         <Pane layoutX="773.0" layoutY="83.0" opacity="0.13" prefHeight="472.0" prefWidth="399.0" style="-fx-background-color: white; -fx-background-radius: 10;" />
         <Text fx:id="wrongPw" fill="#c30303" layoutX="850.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User name or password can't be empty !!" wrappingWidth="245.47006225585938" />
         <Pane layoutX="336.0" layoutY="22.0" />
@@ -40,5 +47,10 @@
                 <Font name="System Bold" size="34.0" />
             </font>
         </Text>
+      <ImageView fx:id="miniLogoImg" fitHeight="116.0" fitWidth="159.0" layoutX="25.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/logo.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

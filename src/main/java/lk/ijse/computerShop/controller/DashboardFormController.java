@@ -17,11 +17,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import lk.ijse.computerShop.dto.AttendenceDto;
+import lk.ijse.computerShop.dto.ItemDto;
 import lk.ijse.computerShop.model.AttendenceModel;
+import lk.ijse.computerShop.model.ItemModel;
 import lk.ijse.computerShop.navigation.Navigation;
 import lk.ijse.computerShop.navigation.Routes;
 
@@ -32,9 +36,13 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 public class DashboardFormController {
-
+    @FXML
+    private ImageView notifyIcon;
+    @FXML
+    private JFXButton btnNotification;
     @FXML
     private TextField txtEmpID;
     @FXML
@@ -86,7 +94,23 @@ public class DashboardFormController {
                 "BUYING ORDER"
         );
         orderComb.setItems(options);
+        Image image = new Image("/icons/icons8-notification-50.png");
+        notifyIcon.setImage(image);
+        notification();
 
+    }
+
+    private void notification() {
+
+        ArrayList<ItemDto> allItems = new ItemModel().getAllItems();
+        for (int i = 0; i <allItems.size(); i++) {
+            int qty = allItems.get(i).getQty();
+            if (qty<10){
+
+                Image image = new Image("/icons/icons8-notification.gif");
+                notifyIcon.setImage(image);
+            }
+        }
     }
 
     private void attendence() {
