@@ -4,7 +4,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -13,11 +14,11 @@
 <AnchorPane prefHeight="677.0" prefWidth="1037.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computerShop.controller.CustomerFormController">
    <children>
       <Pane layoutX="22.0" layoutY="336.0" prefHeight="36.0" prefWidth="997.0" style="-fx-background-color: white;" />
-      <JFXButton fx:id="btnAddCustomer" layoutX="909.0" layoutY="227.0" onAction="#btnAddCustomerOnAction" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #16a085;" text="ADD CUSTOMER" textFill="WHITE">
+      <JFXButton fx:id="btnAddCustomer" layoutX="904.0" layoutY="227.0" onAction="#btnAddCustomerOnAction" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #16a085;" text="ADD CUSTOMER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></JFXButton>
-      <Pane layoutX="27.0" layoutY="29.0" prefHeight="243.0" prefWidth="591.0" style="-fx-border-color: gray; -fx-background-color: white; -fx-border-radius: 10; -fx-background-radius: 10;">
+      <Pane layoutX="27.0" layoutY="44.0" prefHeight="242.0" prefWidth="591.0" style="-fx-border-color: gray; -fx-border-width: 3; -fx-border-color: #16a085; -fx-background-color: white; -fx-border-radius: 10 0 0 0; -fx-background-radius: 10 0 0 0;">
          <children>
             <Label layoutX="32.0" layoutY="43.0" text="ID               :">
                <font>
@@ -73,13 +74,15 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
+            <ImageView fitHeight="330.0" fitWidth="330.0" layoutX="412.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/face-face-concept-illustration_114360-7656-removebg-preview.png" />
+               </image>
+            </ImageView>
          </children>
-         <effect>
-            <DropShadow />
-         </effect>
       </Pane>
-      <TextField fx:id="txtSearchBar" layoutX="785.0" layoutY="36.0" onAction="#txtSearchBarOnAction" style="-fx-background-color: white; -fx-border-color: gray;" />
-      <JFXButton layoutX="936.0" layoutY="36.0" onAction="#btnSearchOnAction" style="-fx-border-color: gray;" text="Search">
+      <TextField fx:id="txtSearchBar" layoutX="816.0" layoutY="7.0" onAction="#txtSearchBarOnAction" style="-fx-background-color: white; -fx-border-color: gray;" />
+      <JFXButton layoutX="967.0" layoutY="7.0" onAction="#btnSearchOnAction" style="-fx-border-color: gray;" text="Search">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></JFXButton>

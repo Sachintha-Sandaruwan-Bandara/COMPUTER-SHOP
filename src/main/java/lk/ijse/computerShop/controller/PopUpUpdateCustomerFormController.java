@@ -117,5 +117,10 @@ public class PopUpUpdateCustomerFormController {
         }
 
     }
+    @FXML
+    void btnCloseOnAction(ActionEvent event) {
+        Stage stage = (Stage) txtName.getScene().getWindow();
+        stage.close();
+    }
 
 }

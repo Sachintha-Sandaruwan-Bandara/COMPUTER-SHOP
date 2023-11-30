@@ -115,6 +115,9 @@ public class Navigation {
             case ADDITEM:
                 initPopUp("popUpAddItemForm");
                 break;
+            case LOWSTOCK:
+                initPopUp("lowStockForm");
+                break;
         }
 
 

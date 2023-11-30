@@ -17,10 +17,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import lk.ijse.computerShop.dto.AttendenceDto;
 import lk.ijse.computerShop.dto.ItemDto;
@@ -39,6 +41,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class DashboardFormController {
+
     @FXML
     private ImageView notifyIcon;
     @FXML
@@ -100,7 +103,16 @@ public class DashboardFormController {
 
     }
 
+
+
     private void notification() {
+        btnNotification.setOnAction(actionEvent -> {
+            try {
+                Navigation.navigatePopUpWindow(Routes.LOWSTOCK);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
 
         ArrayList<ItemDto> allItems = new ItemModel().getAllItems();
         for (int i = 0; i <allItems.size(); i++) {
@@ -261,7 +273,7 @@ txtEmpID.setOnAction(Event -> {
 
         detail1.setOnMouseEntered(event -> {
             bgclrPane.setStyle("-fx-background-color: rgba(250,177,160,0.25);");
-            lblTimeMini.setStyle("-fx-text-fill:white;");
+
 
         });
 
@@ -305,10 +317,12 @@ txtEmpID.setOnAction(Event -> {
             if (darkMode.isSelected()) {
                 System.out.println("Toggle button is ON");
                 subAnchorPane.setStyle("-fx-background-color: rgb(44,62,80);");
+                lblTimeMini.setStyle("-fx-text-fill:white;");
 
             } else {
                 System.out.println("Toggle button is OFF");
                 subAnchorPane.setStyle("-fx-background-color: rgb(255,255,255);");
+                lblTimeMini.setStyle("-fx-text-fill:black;");
             }
         });
     }

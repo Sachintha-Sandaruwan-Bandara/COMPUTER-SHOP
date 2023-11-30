@@ -15,9 +15,8 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="mainAnchorPane" prefHeight="670.0" prefWidth="1250.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computerShop.controller.DashboardFormController">
+<AnchorPane fx:id="mainAnchorPane" prefHeight="670.0" prefWidth="1250.0" style="-fx-background-color: #c0bcbc;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computerShop.controller.DashboardFormController">
     <children>
         <Pane prefHeight="677.0" prefWidth="213.0" style="-fx-background-color: #212121;">
             <children>
@@ -312,22 +311,26 @@
                 <TextField layoutX="694.0" layoutY="15.0" prefHeight="39.0" prefWidth="192.0" style="-fx-background-radius: 0; -fx-background-color: white; -fx-border-color: gray;" />
                 <Pane layoutX="524.0" layoutY="384.0" prefHeight="211.0" prefWidth="485.0" style="-fx-background-color: white; -fx-border-radius: 10; -fx-background-radius: 10;">
                     <children>
-                        <Label layoutX="36.0" layoutY="22.0" text="WELCOME TO PC BUILDERS">
+                        <Label layoutX="4.0" layoutY="10.0" text="WELCOME TO PC BUILDERS">
                             <font>
                                 <Font name="System Bold" size="17.0" />
                             </font>
                         </Label>
-                        <Text layoutX="39.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="shb sdjasjds sdkjndfk kwdhsggduoy kjefeujfjwefkwfe kjnfwjwnef jnnfjpoef efjnjefnjef   ekfjnhewjfnw   ekjfnwjnfjiuhuddc " wrappingWidth="299.33333333333326" />
-                        <Label fx:id="lblTime" layoutX="44.0" layoutY="100.0" prefHeight="89.0" prefWidth="199.0" text="00:00:00">
+                        <Label fx:id="lblTime" layoutX="28.0" layoutY="61.0" prefHeight="89.0" prefWidth="199.0" text="00:00:00">
                             <font>
                                 <Font name="System Bold" size="48.0" />
                             </font>
                         </Label>
-                        <Label fx:id="lblDate" layoutX="75.0" layoutY="172.0" prefHeight="34.0" prefWidth="127.0" text="2023-10-10">
+                        <Label fx:id="lblDate" layoutX="59.0" layoutY="133.0" prefHeight="34.0" prefWidth="127.0" text="2023-10-10">
                             <font>
                                 <Font name="System Bold" size="20.0" />
                             </font>
                         </Label>
+                  <ImageView fitHeight="211.0" fitWidth="253.0" layoutX="233.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../images/10798281_19362653.jpg" />
+                     </image>
+                  </ImageView>
                     </children>
                 </Pane>
                 <Pane layoutX="36.0" layoutY="461.0" prefHeight="57.0" prefWidth="357.0" style="-fx-background-color: white; -fx-border-radius: 10; -fx-background-radius: 10;">

@@ -5,15 +5,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="218.0" prefWidth="425.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computerShop.controller.ConfirmFormController">
+<AnchorPane prefHeight="218.0" prefWidth="425.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <JFXButton layoutX="256.0" layoutY="146.0" onAction="#btnDeleteOnAction" prefHeight="37.0" prefWidth="85.0" ripplerFill="WHITE" style="-fx-background-color: #16a085;" text="Delete" textFill="WHITE">
+      <JFXButton fx:id="btnDelete" layoutX="256.0" layoutY="146.0" prefHeight="37.0" prefWidth="85.0" ripplerFill="WHITE" style="-fx-background-color: #16a085;" text="Delete" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="83.0" layoutY="146.0" onAction="#btnCancelOnAction" prefHeight="37.0" prefWidth="85.0" style="-fx-border-color: #16a085;" text="Cancel" textFill="#16a085">
+      <JFXButton fx:id="btnCancel" layoutX="83.0" layoutY="146.0" prefHeight="37.0" prefWidth="85.0" style="-fx-border-color: #16a085;" text="Cancel" textFill="#16a085">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

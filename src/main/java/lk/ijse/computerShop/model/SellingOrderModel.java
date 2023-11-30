@@ -5,8 +5,10 @@ package lk.ijse.computerShop.model;
 */
 
 import lk.ijse.computerShop.db.DbConnection;
+import lk.ijse.computerShop.dto.SellingOrderDto;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -35,4 +37,47 @@ public class SellingOrderModel {
         }
         return "O001";
     }
+
+    public void placeSellingOrder(SellingOrderDto sellingOrderDto) {
+
+
+//            boolean result = false;
+//            Connection connection=null;
+//
+//            try {
+//                connection = DbConnection.getInstance().getConnection();
+//                connection.setAutoCommit(false);
+//
+//
+//                boolean isOrderSaved = SellingOrderModel.saveOrder();
+//                if (isOrderSaved) {
+//                    boolean isUpdated = RawMaterialModel.updateRawMaterial(placeOrderDto.getTmList());
+//                    if(isUpdated) {
+//                        boolean isOrderDetailSaved = OrderDetailModel.saveOrderDetail(placeOrderDto.getOrderId(), placeOrderDto.getTmList());
+//                        if(isOrderDetailSaved) {
+//                            connection.commit();
+//                            result = true;
+//                        }
+//                    }
+//                }
+//            } catch (SQLException e) {
+//                connection.rollback();
+//            } finally {
+//                connection.setAutoCommit(true);
+//            }
+//            return result;
+
+
+    }
+
+//    private static boolean saveOrder() {
+//        try {
+//            Connection connection = DbConnection.getInstance().getConnection();
+//            String sql="";
+//            PreparedStatement pstm = connection.prepareStatement(sql);
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//
+//    }
 }

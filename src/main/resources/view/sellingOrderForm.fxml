@@ -15,7 +15,7 @@
 <AnchorPane prefHeight="677.0" prefWidth="1037.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computerShop.controller.SellingOrderFormController">
    <children>
       <Pane prefHeight="677.0" prefWidth="1037.0" style="-fx-background-color: #81ECEC3F;" />
-      <JFXButton layoutX="898.0" layoutY="608.0" prefHeight="48.0" prefWidth="120.0" style="-fx-background-color: BLACK;" text="PLACE ORDER" textFill="WHITE">
+      <JFXButton layoutX="898.0" layoutY="608.0" onAction="#btnPlaceOrderOnAction" prefHeight="48.0" prefWidth="120.0" style="-fx-background-color: BLACK;" text="PLACE ORDER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

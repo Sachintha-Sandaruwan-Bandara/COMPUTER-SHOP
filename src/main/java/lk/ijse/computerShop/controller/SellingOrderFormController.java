@@ -17,6 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.computerShop.dto.CustomerDto;
 import lk.ijse.computerShop.dto.ItemDto;
+import lk.ijse.computerShop.dto.SellingOrderDto;
 import lk.ijse.computerShop.dto.tm.SellingOrderTm;
 import lk.ijse.computerShop.model.CustomerModel;
 import lk.ijse.computerShop.model.ItemModel;
@@ -194,6 +195,31 @@ public class SellingOrderFormController {
         }
     }
 
+    @FXML
+    void btnPlaceOrderOnAction(ActionEvent event) {
+        String orderId=lblOrderId.getText();
+        String customerId=cmbCustomerId.getValue();
+        String orderDate=lblOrderDate.getText();
+        List<SellingOrderTm> tmList = new ArrayList<>();
+
+        for (SellingOrderTm sellingOrderTm: obList) {
+            tmList.add(sellingOrderTm);
+        }
+
+        SellingOrderDto sellingOrderDto = new SellingOrderDto(orderId, customerId, orderDate, tmList);
+
+        new SellingOrderModel().placeSellingOrder(sellingOrderDto);
+
+
+    }
+
+
+
+
+
+
+
 
 }
+
 

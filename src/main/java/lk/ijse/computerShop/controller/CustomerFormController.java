@@ -5,6 +5,7 @@ package lk.ijse.computerShop.controller;
 */
 
 import com.jfoenix.controls.JFXButton;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +19,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import lk.ijse.computerShop.dto.CustomerDto;
 
 import lk.ijse.computerShop.model.CustomerModel;
@@ -29,6 +31,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class CustomerFormController {
+
+    @FXML
+    private JFXButton btnSearch;
     @FXML
     private VBox vBox;
 
@@ -137,10 +142,18 @@ public class CustomerFormController {
             System.out.println(id);
             //set actions to row buttons
             btnClear.setOnAction(actionEvent -> {
-                System.out.println("cleard");
 
-               new CustomerModel().deleteCustomer(id);
-                vBox1.getChildren().clear();
+
+
+
+
+                new CustomerModel().deleteCustomer(id);
+                    vBox1.getChildren().clear();
+                    System.out.println("cleard");
+
+
+
+
             });
 
             btnEdit.setOnAction(actionEvent -> {
@@ -213,6 +226,8 @@ public class CustomerFormController {
     @FXML
     void txtSearchBarOnAction(ActionEvent event) {
         btnSearchOnAction(event);
+
+
 
     }
 
