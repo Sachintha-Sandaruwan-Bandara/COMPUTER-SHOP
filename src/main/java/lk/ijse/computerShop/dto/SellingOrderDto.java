@@ -19,5 +19,6 @@ public class SellingOrderDto {
     public String orderId;
     public String customerId;
     public String orderDate;
+    public double total;
     List<SellingOrderTm> tmList = new ArrayList<>();
 }

@@ -5,6 +5,9 @@ package lk.ijse.computerShop.controller;
 */
 
 import animatefx.animation.ZoomIn;
+import javafx.animation.Interpolator;
+import javafx.animation.RotateTransition;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
@@ -13,13 +16,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.scene.transform.Rotate;
+import lk.ijse.computerShop.dto.UserDto;
+import lk.ijse.computerShop.model.UserModel;
 import lk.ijse.computerShop.navigation.Navigation;
 import lk.ijse.computerShop.navigation.Routes;
+
 import java.io.IOException;
-import javafx.scene.transform.Rotate;
-import javafx.animation.Interpolator;
-import javafx.animation.RotateTransition;
-import javafx.animation.TranslateTransition;
+
 public class LoginPageFormController {
 
     @FXML
@@ -41,7 +45,8 @@ public class LoginPageFormController {
 
     public void initialize() {
 
-introImg();
+        introImg();
+        wrongPw.setVisible(false);
     }
 
     private void introImg() {
@@ -63,11 +68,20 @@ introImg();
 
     @FXML
     void btnLoginOnAction(ActionEvent event) throws IOException {
-        Navigation.navigate(Routes.DASHBOARD,loginPageAnchorPane);
+        UserDto user = new UserModel().getUser(txtUserName.getText());
+
+        if (user.getPassword().equals(txtPassword.getText())) {
+            Navigation.navigate(Routes.DASHBOARD, loginPageAnchorPane);
+        } else {
+            wrongPw.setVisible(true);
+        }
+
+
     }
 
     @FXML
     void fogetPasswordOnMouseClicked(MouseEvent event) {
+
 
     }
 

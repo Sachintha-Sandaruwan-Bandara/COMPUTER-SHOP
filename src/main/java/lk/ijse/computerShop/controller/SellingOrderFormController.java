@@ -196,19 +196,26 @@ public class SellingOrderFormController {
     }
 
     @FXML
-    void btnPlaceOrderOnAction(ActionEvent event) {
+    void btnPlaceOrderOnAction(ActionEvent event) throws SQLException {
         String orderId=lblOrderId.getText();
         String customerId=cmbCustomerId.getValue();
         String orderDate=lblOrderDate.getText();
+        double total= Double.valueOf(lblNetTotal.getText());
         List<SellingOrderTm> tmList = new ArrayList<>();
 
         for (SellingOrderTm sellingOrderTm: obList) {
             tmList.add(sellingOrderTm);
         }
 
-        SellingOrderDto sellingOrderDto = new SellingOrderDto(orderId, customerId, orderDate, tmList);
+        SellingOrderDto sellingOrderDto = new SellingOrderDto(orderId, customerId, orderDate,total, tmList);
 
-        new SellingOrderModel().placeSellingOrder(sellingOrderDto);
+        boolean isSellingOrderPlaced= new SellingOrderModel().placeSellingOrder(sellingOrderDto);
+
+        if (isSellingOrderPlaced){
+            System.out.println("oder Placed");
+        }else {
+            System.out.println("something went wrong");
+        }
 
 
     }

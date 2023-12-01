@@ -40,6 +40,7 @@ create table user(
                      userID varchar(30)primary key,
                      userName varchar(30),
                      empID varchar(30),
+                     password varchar(30),
                      constraint foreign key (empID) references
                          employee(empID)on delete  cascade on update cascade
 
@@ -131,6 +132,7 @@ create table sellingOrder(
 create table sellingOrderDetails(
                                     soID varchar(30),
                                     itemID varchar(30),
+                                    qty int(10),
 
                                     constraint foreign key (soID) references
                                         sellingOrder(soID)on delete  cascade on update cascade,

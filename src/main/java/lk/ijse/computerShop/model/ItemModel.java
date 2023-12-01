@@ -6,6 +6,7 @@ package lk.ijse.computerShop.model;
 
 import lk.ijse.computerShop.db.DbConnection;
 import lk.ijse.computerShop.dto.ItemDto;
+import lk.ijse.computerShop.dto.tm.SellingOrderTm;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -76,6 +77,27 @@ public class ItemModel {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
+    }
+
+    public boolean updateSellItems(SellingOrderTm sellingOrderTm) {
+        Connection connection = null;
+        try {
+            connection = DbConnection.getInstance().getConnection();
+
+            String sql="update item set qty=qty-? where itemID=?";
+            PreparedStatement pstm = connection.prepareStatement(sql);
+            pstm.setObject(1,sellingOrderTm.getQty());
+            pstm.setObject(2,sellingOrderTm.getCode());
+
+            boolean b = pstm.executeUpdate() > 0;
+            return b;
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
 
     }
 

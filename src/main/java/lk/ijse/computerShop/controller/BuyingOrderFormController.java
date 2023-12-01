@@ -78,14 +78,14 @@ public class BuyingOrderFormController {
     private TextField txtQty;
     private final ObservableList<SellingOrderTm> obList = FXCollections.observableArrayList();
     public void initialize(){
-        loadAllCustomerId();
+        loadAllSupplierId();
         loadItemCodes();
         setCellValueFactory();
         setDate();
         generateNextOrderId();
     }
 
-    private void loadAllCustomerId() {
+    private void loadAllSupplierId() {
         SupplierModel supplierModel = new SupplierModel();
         ObservableList<String> obList = FXCollections.observableArrayList();
         ArrayList<SupplierDto> allSuppliers = supplierModel.getAllSuppliers();
@@ -186,10 +186,10 @@ public class BuyingOrderFormController {
         lblNetTotal.setText(String.valueOf(total));
     }
     private void generateNextOrderId() {
-        SellingOrderModel orderModel = new SellingOrderModel();
+
         try {
-            String orderId = orderModel.generateNextOrderId();
-            lblOrderId.setText(orderId);
+            String id = new BuyingOrderModel().generateNextOrderId();
+            lblOrderId.setText(id);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

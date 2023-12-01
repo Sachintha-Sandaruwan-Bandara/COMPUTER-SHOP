@@ -6,6 +6,7 @@ package lk.ijse.computerShop.model;
 
 import lk.ijse.computerShop.db.DbConnection;
 import lk.ijse.computerShop.dto.SellingOrderDto;
+import lk.ijse.computerShop.dto.tm.SellingOrderTm;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -38,46 +39,103 @@ public class SellingOrderModel {
         return "O001";
     }
 
-    public void placeSellingOrder(SellingOrderDto sellingOrderDto) {
+    public boolean placeSellingOrder(SellingOrderDto sellingOrderDto) throws SQLException {
 
 
-//            boolean result = false;
-//            Connection connection=null;
-//
-//            try {
-//                connection = DbConnection.getInstance().getConnection();
-//                connection.setAutoCommit(false);
-//
-//
-//                boolean isOrderSaved = SellingOrderModel.saveOrder();
-//                if (isOrderSaved) {
-//                    boolean isUpdated = RawMaterialModel.updateRawMaterial(placeOrderDto.getTmList());
-//                    if(isUpdated) {
-//                        boolean isOrderDetailSaved = OrderDetailModel.saveOrderDetail(placeOrderDto.getOrderId(), placeOrderDto.getTmList());
-//                        if(isOrderDetailSaved) {
-//                            connection.commit();
-//                            result = true;
-//                        }
-//                    }
-//                }
-//            } catch (SQLException e) {
-//                connection.rollback();
-//            } finally {
-//                connection.setAutoCommit(true);
-//            }
-//            return result;
+            boolean result = false;
+            Connection connection=null;
+
+            try {
+                connection = DbConnection.getInstance().getConnection();
+                connection.setAutoCommit(false);
+
+                boolean isPaymentSaved = new PaymentModel().savePayment(sellingOrderDto.orderId, sellingOrderDto.total);
+
+                if (isPaymentSaved) {
+                    boolean isOrderSaved= new SellingOrderModel().saveOrder(sellingOrderDto);
+                    if(isOrderSaved) {
+                        boolean isItemUpdated = updateItems(sellingOrderDto);
+                        if (isItemUpdated){
+                            boolean isSavedOrderDetails= orderDetails(sellingOrderDto);
+                            if (isSavedOrderDetails) {
+                                connection.commit();
+                                result = true;
+                            }
+                        }
+                    }
+                }
+            } catch (SQLException e) {
+                connection.rollback();
+            } finally {
+                connection.setAutoCommit(true);
+            }
+            return result;
 
 
     }
 
-//    private static boolean saveOrder() {
-//        try {
-//            Connection connection = DbConnection.getInstance().getConnection();
-//            String sql="";
-//            PreparedStatement pstm = connection.prepareStatement(sql);
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//
-//    }
+    private boolean orderDetails(SellingOrderDto sellingOrderDto) {
+        for (SellingOrderTm sellingOrderTm :sellingOrderDto.getTmList()){
+            boolean isSavedOderDetail = saveOrderDetails(sellingOrderDto.orderId, sellingOrderTm.getCode(),sellingOrderTm.getQty());
+
+            if (!isSavedOderDetail){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean saveOrderDetails(String orderId, String itemCode, int qty) {
+
+
+           try {
+               Connection connection = DbConnection.getInstance().getConnection();
+               String sql="insert into sellingorderdetails values (?,?,?)";
+               PreparedStatement pstm = connection.prepareStatement(sql);
+                pstm.setObject(1,orderId);
+                pstm.setObject(2,itemCode);
+                pstm.setObject(3,qty);
+
+               boolean b = pstm.executeUpdate() > 0;
+               return b;
+
+           } catch (SQLException e) {
+               throw new RuntimeException(e);
+           }
+
+
+    }
+
+    private boolean updateItems(SellingOrderDto sellingOrderDto) {
+       for (SellingOrderTm sellingOrderTm :sellingOrderDto.getTmList()){
+           boolean isUpdated= new ItemModel().updateSellItems(sellingOrderTm);
+
+           if (!isUpdated){
+               return false;
+           }
+       }
+        return true;
+    }
+
+    private  boolean saveOrder(SellingOrderDto sellingOrderDto) {
+        try {
+            Connection connection = DbConnection.getInstance().getConnection();
+            String sql="insert into sellingOrder values (?,?,?,?,?)";
+            PreparedStatement pstm = connection.prepareStatement(sql);
+            pstm.setObject(1,sellingOrderDto.orderId);
+            pstm.setObject(2,sellingOrderDto.orderDate);
+            pstm.setObject(3,"u001");
+            pstm.setObject(4,sellingOrderDto.customerId);
+            pstm.setObject(5,sellingOrderDto.orderId);
+
+            boolean b = pstm.executeUpdate() > 0;
+
+            return b;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
 }

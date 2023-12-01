@@ -82,7 +82,7 @@
          <font>
             <Font name="System Bold" size="14.0" />
          </font></JFXButton>
-      <ScrollPane layoutX="13.0" layoutY="325.0" prefHeight="348.0" prefWidth="1012.0">
+      <ScrollPane layoutX="13.0" layoutY="374.0" prefHeight="299.0" prefWidth="1012.0">
          <content>
             <AnchorPane prefHeight="289.0" prefWidth="973.0">
                <children>
@@ -91,5 +91,41 @@
             </AnchorPane>
          </content>
       </ScrollPane>
+      <Pane layoutX="17.0" layoutY="334.0" prefHeight="36.0" prefWidth="1012.0" style="-fx-background-color: white;" />
+      <Label layoutX="59.0" layoutY="344.0" text="ID">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="198.0" layoutY="344.0" text="NAME">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="348.0" layoutY="344.0" text="ADDRESS">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="501.0" layoutY="344.0" text="E-MAIL">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="665.0" layoutY="344.0" text="MOBILE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="900.0" layoutY="344.0" text="ACTION">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="792.0" layoutY="344.0" text="POS.">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
