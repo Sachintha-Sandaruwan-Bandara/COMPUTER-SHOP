@@ -69,7 +69,10 @@ public class LoginPageFormController {
     @FXML
     void btnLoginOnAction(ActionEvent event) throws IOException {
         UserDto user = new UserModel().getUser(txtUserName.getText());
-
+        if(txtUserName.getText().equals(null)||txtPassword.getText().equals(null)) {
+            wrongPw.setText("User name or password can't be empty !!");
+            wrongPw.setVisible(true);
+        }
         if (user.getPassword().equals(txtPassword.getText())) {
             Navigation.navigate(Routes.DASHBOARD, loginPageAnchorPane);
         } else {
@@ -88,6 +91,10 @@ public class LoginPageFormController {
     @FXML
     void forgetPasswordOnMouseClicked(MouseEvent event) {
 
+    }
+    @FXML
+    void btnCloseOnAction(ActionEvent event) {
+        System.exit(0);
     }
 
 }

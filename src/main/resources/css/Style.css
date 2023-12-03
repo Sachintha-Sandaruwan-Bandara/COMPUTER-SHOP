@@ -11,8 +11,8 @@
     -fx-scale-x: 1.2;
     -fx-scale-y: 1.2;
     -fx-animation: scale 0.5s linear infinite;
-    -fx-background-color: rgba(128, 128, 128, 0.17);
-    -fx-text-fill: #7e7878;
+    -fx-background-color: rgba(128, 128, 128, 0);
+
 }
 
 .popup-button:hover {

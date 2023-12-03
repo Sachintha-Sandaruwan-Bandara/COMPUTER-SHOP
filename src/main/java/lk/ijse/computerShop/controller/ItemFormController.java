@@ -103,7 +103,7 @@ public static ItemFormController itemFormController;
                     throw new RuntimeException(e);
                 }
             }else {
-                System.out.println("item nit deleted");
+                System.out.println("item  deleted");
             }
 
         });

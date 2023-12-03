@@ -151,4 +151,10 @@ public class PopUpAddEmployeeFormController {
         btnAddImageOnAction();
 
     }
+
+    @FXML
+    void btnCloseOnAction(ActionEvent event) {
+        Stage stage = (Stage) txtId.getScene().getWindow();
+        stage.close();
+    }
 }

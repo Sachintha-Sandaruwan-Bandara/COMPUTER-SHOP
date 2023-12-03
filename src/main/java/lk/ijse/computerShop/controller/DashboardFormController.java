@@ -330,6 +330,9 @@ txtEmpID.setOnAction(Event -> {
     void btnDashBoardPlaceOrderOnAction(ActionEvent event) throws IOException {
         Navigation.navigate(Routes.SELLINGORDER, subAnchorPane);
     }
-
+    @FXML
+    void btnCloseOnAction(ActionEvent event) {
+            System.exit(0);
+    }
 }
 

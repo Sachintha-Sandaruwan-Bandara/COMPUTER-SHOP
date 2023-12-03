@@ -52,5 +52,14 @@
             <Image url="@../images/logo.png" />
          </image>
       </ImageView>
+      <JFXButton layoutX="1202.0" layoutY="2.0" onAction="#btnCloseOnAction" prefHeight="39.0" prefWidth="31.0" styleClass="popup-button" stylesheets="@../css/Style.css" text=" " textFill="#aeaeae">
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/icons8-close-50.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
     </children>
 </AnchorPane>

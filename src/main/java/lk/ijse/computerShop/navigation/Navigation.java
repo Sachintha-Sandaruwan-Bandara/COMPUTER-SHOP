@@ -132,6 +132,7 @@ public class Navigation {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
         stage.setAlwaysOnTop(true);
+
         stage.setTitle("");
       //  stage.show();
         stage.showAndWait();
